@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
+    Copyright (c) 2012 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -38,7 +38,7 @@
 
 
 namespace mei {
-/** \brief 
+/** \brief (addition) ― Marks an addition to the text.
  */
 class MEI_EXPORT Add : public MeiElement {
     public:
@@ -60,7 +60,7 @@ class MEI_EXPORT Add : public MeiElement {
         REGISTER_DECLARATION(Add);
 };
 
-/** \brief 
+/** \brief ― Groups a number of alternative encodings for the same point in a text.
  */
 class MEI_EXPORT Choice : public MeiElement {
     public:
@@ -76,7 +76,7 @@ class MEI_EXPORT Choice : public MeiElement {
         REGISTER_DECLARATION(Choice);
 };
 
-/** \brief 
+/** \brief (correction) ― Contains the correct form of an apparent erroneous passage.
  */
 class MEI_EXPORT Corr : public MeiElement {
     public:
@@ -97,14 +97,14 @@ class MEI_EXPORT Corr : public MeiElement {
         REGISTER_DECLARATION(Corr);
 };
 
-/** \brief 
+/** \brief ― Contains an area of damage to the carrier.
  */
 class MEI_EXPORT Damage : public MeiElement {
     public:
         Damage();
         Damage(const Damage& other);
         virtual ~Damage();
-        /** \brief 
+        /** \brief records the degree of damage.
          */
         MeiAttribute* getDegree();
         void setDegree(std::string _degree);
@@ -124,14 +124,16 @@ class MEI_EXPORT Damage : public MeiElement {
         REGISTER_DECLARATION(Damage);
 };
 
-/** \brief 
+/** \brief (deletion) ― Contains information deleted, marked as deleted, or otherwise
+ *  indicated as superfluous or spurious in the copy text by an author, scribe,
+ *  annotator, or corrector.
  */
 class MEI_EXPORT Del : public MeiElement {
     public:
         Del();
         Del(const Del& other);
         virtual ~Del();
-        /** \brief 
+        /** \brief describes the line style of the curve.
          */
         MeiAttribute* getRend();
         void setRend(std::string _rend);
@@ -149,7 +151,9 @@ class MEI_EXPORT Del : public MeiElement {
         REGISTER_DECLARATION(Del);
 };
 
-/** \brief 
+/** \brief ― Indicates a point where material has been omitted in a transcription,
+ *  whether as part of sampling practice or for editorial reasons described in the
+ *  MEI header.
  */
 class MEI_EXPORT Gap : public MeiElement {
     public:
@@ -172,26 +176,31 @@ class MEI_EXPORT Gap : public MeiElement {
         REGISTER_DECLARATION(Gap);
 };
 
-/** \brief 
+/** \brief ― Marks the beginning of a passage written in a new hand, or of a change in
+ *  the scribe, writing style, ink or character of the document hand.
  */
 class MEI_EXPORT HandShift : public MeiElement {
     public:
         HandShift();
         HandShift(const HandShift& other);
         virtual ~HandShift();
-        /** \brief 
+        /** \brief describes the character of the new hand.
          */
         MeiAttribute* getCharacter();
         void setCharacter(std::string _character);
         bool hasCharacter();
         void removeCharacter();
-        /** \brief 
+        /** \brief identifies the new hand.
+         * 
+         *  The value must contain the ID of a hand element given elsewhere in the document.
          */
         MeiAttribute* getNew();
         void setNew(std::string _new);
         bool hasNew();
         void removeNew();
-        /** \brief 
+        /** \brief identifies the old hand.
+         * 
+         *  The value must contain the ID of a hand element given elsewhere in the document.
          */
         MeiAttribute* getOld();
         void setOld(std::string _old);
@@ -211,7 +220,8 @@ class MEI_EXPORT HandShift : public MeiElement {
         REGISTER_DECLARATION(HandShift);
 };
 
-/** \brief 
+/** \brief (original) ― Contains material which is marked as following the original,
+ *  rather than being normalized or corrected.
  */
 class MEI_EXPORT Orig : public MeiElement {
     public:
@@ -232,7 +242,8 @@ class MEI_EXPORT Orig : public MeiElement {
         REGISTER_DECLARATION(Orig);
 };
 
-/** \brief 
+/** \brief (regularization) ― Contains material which has been regularized or normalized
+ *  in some sense.
  */
 class MEI_EXPORT Reg : public MeiElement {
     public:
@@ -252,14 +263,15 @@ class MEI_EXPORT Reg : public MeiElement {
         REGISTER_DECLARATION(Reg);
 };
 
-/** \brief 
+/** \brief ― Indicates restoration of material to an earlier state by cancellation of an
+ *  editorial or authorial marking or instruction.
  */
 class MEI_EXPORT Restore : public MeiElement {
     public:
         Restore();
         Restore(const Restore& other);
         virtual ~Restore();
-        /** \brief 
+        /** \brief provides a description of the means of restoration.
          */
         MeiAttribute* getDesc();
         void setDesc(std::string _desc);
@@ -278,7 +290,7 @@ class MEI_EXPORT Restore : public MeiElement {
         REGISTER_DECLARATION(Restore);
 };
 
-/** \brief 
+/** \brief ― Contains apparently incorrect or inaccurate material.
  */
 class MEI_EXPORT Sic : public MeiElement {
     public:
@@ -295,7 +307,8 @@ class MEI_EXPORT Sic : public MeiElement {
         REGISTER_DECLARATION(Sic);
 };
 
-/** \brief 
+/** \brief (substitution) ― Groups transcriptional elements when the combination is to be
+ *  regarded as a single intervention in the text.
  */
 class MEI_EXPORT Subst : public MeiElement {
     public:
@@ -316,7 +329,9 @@ class MEI_EXPORT Subst : public MeiElement {
         REGISTER_DECLARATION(Subst);
 };
 
-/** \brief 
+/** \brief ― Contains material supplied by the transcriber or editor in place of text
+ *  which cannot be read, either because of physical damage or loss in the original
+ *  or because it is illegible for any reason.
  */
 class MEI_EXPORT Supplied : public MeiElement {
     public:
@@ -338,7 +353,8 @@ class MEI_EXPORT Supplied : public MeiElement {
         REGISTER_DECLARATION(Supplied);
 };
 
-/** \brief 
+/** \brief ― Contains material that cannot be transcribed with certainty because it is
+ *  illegible or inaudible in the source.
  */
 class MEI_EXPORT Unclear : public MeiElement {
     public:

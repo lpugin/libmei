@@ -21,8 +21,8 @@
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef CORPUS_H_
-#define CORPUS_H_
+#ifndef LAYOUT_H_
+#define LAYOUT_H_
 
 #include "meielement.h"
 #include "meinamespace.h"
@@ -31,25 +31,61 @@
 
 #include "meicommon.h"
 #include "sharedmixins.h"
+#include "facsimilemixins.h"
 
 
 namespace mei {
-/** \brief (MEI corpus) ― A group of related MEI documents, consisting of a header for
- *  the group, and one or more <mei> elements, each with its own complete header.
+/** \brief A layout element contains elements describing the physical layout of a page of
+ *  music.
  */
-class MEI_EXPORT MeiCorpus : public MeiElement {
+class MEI_EXPORT Layout : public MeiElement {
     public:
-        MeiCorpus();
-        MeiCorpus(const MeiCorpus& other);
-        virtual ~MeiCorpus();
+        Layout();
+        Layout(const Layout& other);
+        virtual ~Layout();
 
-/* include <meiCorpus> */
+/* include <layout> */
 
         CommonMixIn    m_Common;
-        MeiversionMixIn    m_Meiversion;
 
     private:
-        REGISTER_DECLARATION(MeiCorpus);
+        REGISTER_DECLARATION(Layout);
+};
+
+/** \brief A page element defines a physical page.
+ * 
+ *  Use the regular @facs pattern to describe page dimensions.
+ */
+class MEI_EXPORT Page : public MeiElement {
+    public:
+        Page();
+        Page(const Page& other);
+        virtual ~Page();
+
+/* include <page> */
+
+        CommonMixIn    m_Common;
+        FacsimileMixIn    m_Facsimile;
+
+    private:
+        REGISTER_DECLARATION(Page);
+};
+
+/** \brief A system element defines a physical system on a printed page.
+ */
+class MEI_EXPORT System : public MeiElement {
+    public:
+        System();
+        System(const System& other);
+        virtual ~System();
+
+/* include <system> */
+
+        CommonMixIn    m_Common;
+        FacsimileMixIn    m_Facsimile;
+
+    private:
+        REGISTER_DECLARATION(System);
 };
 }
-#endif  // CORPUS_H_
+#endif  // LAYOUT_H_

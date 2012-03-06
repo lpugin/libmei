@@ -2620,8 +2620,27 @@ bool mei::PbVisMixIn::hasFunc() {
 void mei::PbVisMixIn::removeFunc() {
     b->removeAttribute("func");
 };
+MeiAttribute* mei::PbVisMixIn::getPageref() {
+    if (!b->hasAttribute("pageref")) {
+        throw AttributeNotFoundException("pageref");
+    }
+    return b->getAttribute("pageref");
+};
 
-/* include <funcmixin> */
+void mei::PbVisMixIn::setPageref(std::string _pageref) {
+    MeiAttribute *a = new MeiAttribute("pageref", _pageref);
+    b->addAttribute(a);
+};
+
+bool mei::PbVisMixIn::hasPageref() {
+    return b->hasAttribute("pageref");
+};
+
+void mei::PbVisMixIn::removePageref() {
+    b->removeAttribute("pageref");
+};
+
+/* include <pagerefmixin> */
 mei::PitchMixIn::PitchMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -2946,8 +2965,27 @@ bool mei::SbVisMixIn::hasRend() {
 void mei::SbVisMixIn::removeRend() {
     b->removeAttribute("rend");
 };
+MeiAttribute* mei::SbVisMixIn::getSystemref() {
+    if (!b->hasAttribute("systemref")) {
+        throw AttributeNotFoundException("systemref");
+    }
+    return b->getAttribute("systemref");
+};
 
-/* include <rendmixin> */
+void mei::SbVisMixIn::setSystemref(std::string _systemref) {
+    MeiAttribute *a = new MeiAttribute("systemref", _systemref);
+    b->addAttribute(a);
+};
+
+bool mei::SbVisMixIn::hasSystemref() {
+    return b->hasAttribute("systemref");
+};
+
+void mei::SbVisMixIn::removeSystemref() {
+    b->removeAttribute("systemref");
+};
+
+/* include <systemrefmixin> */
 mei::ScalableMixIn::ScalableMixIn(MeiElement *b) {
     this->b = b;
 };

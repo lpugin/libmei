@@ -1,6 +1,6 @@
 
 """
-    Copyright (c) 2011 Andrew Hankinson
+    Copyright (c) 2012 Andrew Hankinson
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -25,15 +25,18 @@
 from pymei import MeiElement
 
 
-class ineume_(MeiElement):
+class layout_(MeiElement):
     def __init__(self):
-        MeiElement.__init__(self, "ineume")
+        MeiElement.__init__(self, "layout")
+    # <layout>
 
-class syllable_(MeiElement):
+class page_(MeiElement):
     def __init__(self):
-        MeiElement.__init__(self, "syllable")
+        MeiElement.__init__(self, "page")
+    # <page>
 
-class uneume_(MeiElement):
+class system_(MeiElement):
     def __init__(self):
-        MeiElement.__init__(self, "uneume")
+        MeiElement.__init__(self, "system")
+    # <system>
 

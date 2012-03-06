@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
+    Copyright (c) 2012 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -36,7 +36,7 @@ class RegularmethodMixIn {
     public:
         explicit RegularmethodMixIn(MeiElement *b);
         virtual ~RegularmethodMixIn();
-        /** \brief 
+        /** \brief indicates the method employed to mark corrections and normalizations.
          */
         MeiAttribute* getMethod();
         void setMethod(std::string _method);

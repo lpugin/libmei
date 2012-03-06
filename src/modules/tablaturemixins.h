@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
+    Copyright (c) 2012 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -36,13 +36,13 @@ class NoteGesTablatureMixIn {
     public:
         explicit NoteGesTablatureMixIn(MeiElement *b);
         virtual ~NoteGesTablatureMixIn();
-        /** \brief 
+        /** \brief records the fret at which a string should be stopped.
          */
         MeiAttribute* getTabFret();
         void setTabFret(std::string _tabfret);
         bool hasTabFret();
         void removeTabFret();
-        /** \brief 
+        /** \brief records which string is to be played.
          */
         MeiAttribute* getTabString();
         void setTabString(std::string _tabstring);
@@ -59,7 +59,12 @@ class StaffDefGesTablatureMixIn {
     public:
         explicit StaffDefGesTablatureMixIn(MeiElement *b);
         virtual ~StaffDefGesTablatureMixIn();
-        /** \brief 
+        /** \brief provides a written pitch and octave for each open string, e.g.
+         * 
+         *  "e3 a3 d4 g4 b4 e5" for standard guitar tuning. It should contain the number of
+         *  tokens indicated by the lines attribute. Chromatic alteration may be indicated
+         *  with '-', or 'f', (flat) and '#', or 's' (sharp). Multiple sharps and flats are
+         *  not permitted.
          */
         MeiAttribute* getTabStrings();
         void setTabStrings(std::string _tabstrings);

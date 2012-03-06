@@ -1,5 +1,6 @@
-/*
-    Copyright (c) 2012 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
+
+"""
+    Copyright (c) 2012 Andrew Hankinson
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -19,37 +20,28 @@
     LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
+"""
 
-#ifndef CORPUS_H_
-#define CORPUS_H_
-
-#include "meielement.h"
-#include "meinamespace.h"
-#include "exceptions.h"
-/* #include_block */
-
-#include "meicommon.h"
-#include "sharedmixins.h"
+from pymei import MeiElement
 
 
-namespace mei {
-/** \brief (MEI corpus) ― A group of related MEI documents, consisting of a header for
- *  the group, and one or more <mei> elements, each with its own complete header.
- */
-class MEI_EXPORT MeiCorpus : public MeiElement {
-    public:
-        MeiCorpus();
-        MeiCorpus(const MeiCorpus& other);
-        virtual ~MeiCorpus();
+class division_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "division")
+    # <division>
 
-/* include <meiCorpus> */
+class episema_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "episema")
+    # <episema>
 
-        CommonMixIn    m_Common;
-        MeiversionMixIn    m_Meiversion;
+class nc_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "nc")
+    # <nc>
 
-    private:
-        REGISTER_DECLARATION(MeiCorpus);
-};
-}
-#endif  // CORPUS_H_
+class neume_(MeiElement):
+    def __init__(self):
+        MeiElement.__init__(self, "neume")
+    # <neume>
+

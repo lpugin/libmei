@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
+    Copyright (c) 2012 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -36,7 +36,8 @@ class CritMixIn {
     public:
         explicit CritMixIn(MeiElement *b);
         virtual ~CritMixIn();
-        /** \brief 
+        /** \brief classifies the cause for the variant reading, according to any appropriate
+         *  typology of possible origins.
          */
         MeiAttribute* getCause();
         void setCause(std::string _cause);
@@ -53,7 +54,11 @@ class SourceMixIn {
     public:
         explicit SourceMixIn(MeiElement *b);
         virtual ~SourceMixIn();
-        /** \brief 
+        /** \brief contains a list of one or more pointers indicating the sources which attest to a
+         *  given reading.
+         * 
+         *  Each value should correspond to the ID of a <source> element located in the
+         *  document header.
          */
         MeiAttribute* getSource();
         void setSource(std::string _source);
