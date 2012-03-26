@@ -15,6 +15,8 @@
 #include "xmlimport.h"
 #include "meidocument.h"
 
+#include <iostream>
+
 using std::string;
 using std::vector;
 
@@ -31,7 +33,7 @@ XmlImport::~XmlImport() {
     delete impl;
 }
 
-MeiDocument* XmlImport::documentFromFile(const char *filename) {
+MeiDocument* XmlImport::documentFromFile(string filename) {
     XmlImport *import = new XmlImport();
     MeiDocument *d = import->impl->documentFromFile(filename);
     delete import;
@@ -52,9 +54,16 @@ XmlImportImpl::XmlImportImpl() {
     rootMeiElement = NULL;
 }
 
-MeiDocument* XmlImportImpl::documentFromFile(const char *filename) {
+MeiDocument* XmlImportImpl::documentFromFile(string filename) {
     xmlDoc *doc = NULL;
-    doc = xmlReadFile(filename, NULL, 0);
+    /* XML_PARSE_NOERROR will simply suppress the libxml error messages on malformed XML,
+        it won't actually stop it from parsing. */
+    doc = xmlReadFile(filename.c_str(), NULL, XML_PARSE_NOERROR);
+
+    if (doc == NULL) {
+        throw MalformedFileException(filename);
+    }
+    
     this->xmlMeiDocument = doc;
     this->rootXmlNode = xmlDocGetRootElement(this->xmlMeiDocument);
 

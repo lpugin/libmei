@@ -72,3 +72,7 @@ TEST(TestMeiXmlImport, TestBadVersionException) {
 TEST(TestMeiXmlImport, TestNoVersionException) {
     ASSERT_THROW(mei::XmlImport::documentFromFile("noversion.mei"), mei::NoVersionFoundException);
 }
+
+TEST(TestMeiXmlImport, TestMalformedFileException) {
+    ASSERT_THROW(mei::XmlImport::documentFromFile("malformed.mei"), mei::MalformedFileException);
+}
