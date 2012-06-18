@@ -1146,6 +1146,7 @@
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SYMROOT = "$(PROJECT_DIR)/build";
 				WARNING_CFLAGS = "-Wall";
 			};
 			name = Debug;
@@ -1162,6 +1163,7 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = macosx;
+				SYMROOT = "$(PROJECT_DIR)/build";
 			};
 			name = Release;
 		};
@@ -1398,6 +1400,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				"INSTALL_PATH[sdk=*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = mei;
 				PUBLIC_HEADERS_FOLDER_PATH = /include/mei;
