@@ -1,0 +1,4 @@
+1) create the mei-Layout_compiled.xml file on customization.music-encoding.org using the MEI 2012 version and mei-Layout.xml
+
+2) create the sources, e.g:
+/opt/local/bin/python2.7 ../../tools/parseschema2.py -m mei-Layout_compiled.xml -l cpp -o ../../src/modules/
