@@ -97,6 +97,22 @@
 		05C9B31B13FC0BD000E68B21 /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C9B31913FC0BC300E68B21 /* gtest.framework */; };
 		05C9B31C13FC2D2C00E68B21 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		05CEA56613FC61CB0009A15E /* test_meifactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05CEA56513FC61CB0009A15E /* test_meifactory.cpp */; };
+		4D41C8D8159469C1001F412A /* layout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D41C8D4159469C1001F412A /* layout.cpp */; };
+		4D41C8D9159469C1001F412A /* layout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D41C8D4159469C1001F412A /* layout.cpp */; };
+		4D41C8DA159469C1001F412A /* layout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D41C8D4159469C1001F412A /* layout.cpp */; };
+		4D41C8DB159469C1001F412A /* layout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D41C8D4159469C1001F412A /* layout.cpp */; };
+		4D41C8DC159469C1001F412A /* layout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D41C8D4159469C1001F412A /* layout.cpp */; };
+		4D41C8DD159469C1001F412A /* layout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D41C8D4159469C1001F412A /* layout.cpp */; };
+		4D41C8DE159469C1001F412A /* layout.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D41C8D5159469C1001F412A /* layout.h */; };
+		4D41C8DF159469C1001F412A /* layout.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D41C8D5159469C1001F412A /* layout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D41C8E0159469C1001F412A /* layoutmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D41C8D6159469C1001F412A /* layoutmixins.cpp */; };
+		4D41C8E1159469C1001F412A /* layoutmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D41C8D6159469C1001F412A /* layoutmixins.cpp */; };
+		4D41C8E2159469C1001F412A /* layoutmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D41C8D6159469C1001F412A /* layoutmixins.cpp */; };
+		4D41C8E3159469C1001F412A /* layoutmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D41C8D6159469C1001F412A /* layoutmixins.cpp */; };
+		4D41C8E4159469C1001F412A /* layoutmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D41C8D6159469C1001F412A /* layoutmixins.cpp */; };
+		4D41C8E5159469C1001F412A /* layoutmixins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4D41C8D6159469C1001F412A /* layoutmixins.cpp */; };
+		4D41C8E6159469C1001F412A /* layoutmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D41C8D7159469C1001F412A /* layoutmixins.h */; };
+		4D41C8E7159469C1001F412A /* layoutmixins.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D41C8D7159469C1001F412A /* layoutmixins.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		617B434A1304563100EBBE7F /* readmei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 617B43351304540E00EBBE7F /* readmei.cpp */; };
 		61DBCCFC1312D00100B46918 /* mei.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61DBCCCF1312C85D00B46918 /* mei.framework */; };
 		61DBCD411312DDF500B46918 /* gtest_main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 61DBCD401312DDF500B46918 /* gtest_main.cc */; };
@@ -346,6 +362,10 @@
 		05CEA56513FC61CB0009A15E /* test_meifactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_meifactory.cpp; path = test/test_meifactory.cpp; sourceTree = "<group>"; };
 		05CEA57A13FC7E570009A15E /* gtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = gtest.framework; path = Library/Frameworks/gtest.framework; sourceTree = SDKROOT; };
 		05CED9A2142A726F003A8CB6 /* test_cmn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_cmn.cpp; path = test/test_cmn.cpp; sourceTree = "<group>"; };
+		4D41C8D4159469C1001F412A /* layout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = layout.cpp; path = src/modules/layout.cpp; sourceTree = "<group>"; };
+		4D41C8D5159469C1001F412A /* layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = layout.h; path = src/modules/layout.h; sourceTree = "<group>"; };
+		4D41C8D6159469C1001F412A /* layoutmixins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = layoutmixins.cpp; path = src/modules/layoutmixins.cpp; sourceTree = "<group>"; };
+		4D41C8D7159469C1001F412A /* layoutmixins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = layoutmixins.h; path = src/modules/layoutmixins.h; sourceTree = "<group>"; };
 		5073E0C609E734A800EC74B6 /* libmeiProj.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = libmeiProj.xcconfig; sourceTree = "<group>"; };
 		5073E0C709E734A800EC74B6 /* libmeiTarget.xcconfig */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xcconfig; path = libmeiTarget.xcconfig; sourceTree = "<group>"; };
 		617B43351304540E00EBBE7F /* readmei.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = readmei.cpp; path = util/readmei.cpp; sourceTree = "<group>"; };
@@ -605,6 +625,10 @@
 		9B11C8A5132E6C4E0090FDA6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				4D41C8D4159469C1001F412A /* layout.cpp */,
+				4D41C8D5159469C1001F412A /* layout.h */,
+				4D41C8D6159469C1001F412A /* layoutmixins.cpp */,
+				4D41C8D7159469C1001F412A /* layoutmixins.h */,
 				0514A64813FD6D6000310111 /* analysismixins.cpp */,
 				0514A64913FD6D6000310111 /* analysismixins.h */,
 				0514A64A13FD6D6000310111 /* cmn.cpp */,
@@ -746,6 +770,8 @@
 				A1B63DA91445D89200029BB7 /* meicommon.h in Headers */,
 				056BCFF2157029E3006E51A4 /* meixml.h in Headers */,
 				A1F5D1791455D90100CE6CE6 /* mei.h in Headers */,
+				4D41C8DE159469C1001F412A /* layout.h in Headers */,
+				4D41C8E6159469C1001F412A /* layoutmixins.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,6 +801,8 @@
 				8FA782391570C4D20031FD74 /* harmonymixins.h in Headers */,
 				8FA7823A1570C4D20031FD74 /* header.h in Headers */,
 				8FA7823B1570C4D20031FD74 /* headermixins.h in Headers */,
+				4D41C8DF159469C1001F412A /* layout.h in Headers */,
+				4D41C8E7159469C1001F412A /* layoutmixins.h in Headers */,
 				8FA7823C1570C4D20031FD74 /* linkalign.h in Headers */,
 				8FA7823D1570C4D20031FD74 /* linkalignmixins.h in Headers */,
 				8FA7823E1570C4D20031FD74 /* lyrics.h in Headers */,
@@ -957,6 +985,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				05138CEF14192BE00093C907 /* mei-update.cpp in Sources */,
+				4D41C8DB159469C1001F412A /* layout.cpp in Sources */,
+				4D41C8E3159469C1001F412A /* layoutmixins.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -965,6 +995,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				617B434A1304563100EBBE7F /* readmei.cpp in Sources */,
+				4D41C8D8159469C1001F412A /* layout.cpp in Sources */,
+				4D41C8E0159469C1001F412A /* layoutmixins.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -980,6 +1012,8 @@
 				05B6605814017D8400D54F9A /* test_xmloutput.cpp in Sources */,
 				B28CF23F140ADFAF00A87C7A /* test_meidocument.cpp in Sources */,
 				A1F5D17A1455D96C00CE6CE6 /* test_cmn.cpp in Sources */,
+				4D41C8D9159469C1001F412A /* layout.cpp in Sources */,
+				4D41C8E1159469C1001F412A /* layoutmixins.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1030,6 +1064,8 @@
 				0514A64513FD6C2100310111 /* xmlexport.cpp in Sources */,
 				053321C41402DBF400B89665 /* meinamespace.cpp in Sources */,
 				056BCFF8157423ED006E51A4 /* meixml.cpp in Sources */,
+				4D41C8DA159469C1001F412A /* layout.cpp in Sources */,
+				4D41C8E2159469C1001F412A /* layoutmixins.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1039,6 +1075,8 @@
 			files = (
 				827EF456142CE661007B9789 /* mxmltomei.cpp in Sources */,
 				825732E1142D09AA00F3868D /* mxmlparser.cpp in Sources */,
+				4D41C8DC159469C1001F412A /* layout.cpp in Sources */,
+				4D41C8E4159469C1001F412A /* layoutmixins.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1088,6 +1126,8 @@
 				8FA782251570C4950031FD74 /* usersymbols.cpp in Sources */,
 				8FA782001570C4680031FD74 /* meidocument.cpp in Sources */,
 				8FA782011570C4680031FD74 /* meinamespace.cpp in Sources */,
+				4D41C8DD159469C1001F412A /* layout.cpp in Sources */,
+				4D41C8E5159469C1001F412A /* layoutmixins.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
