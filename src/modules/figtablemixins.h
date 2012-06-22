@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -36,13 +36,13 @@ class TabularMixIn {
     public:
         explicit TabularMixIn(MeiElement *b);
         virtual ~TabularMixIn();
-        /** \brief 
+        /** \brief the number of columns spanned by this cell.
          */
         MeiAttribute* getColspan();
         void setColspan(std::string _colspan);
         bool hasColspan();
         void removeColspan();
-        /** \brief 
+        /** \brief the number of rows spanned by this cell.
          */
         MeiAttribute* getRowspan();
         void setRowspan(std::string _rowspan);

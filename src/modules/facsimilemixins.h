@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -36,16 +36,15 @@ class FacsimileMixIn {
     public:
         explicit FacsimileMixIn(MeiElement *b);
         virtual ~FacsimileMixIn();
-        /** \brief 
+        /** \brief permits the current element to reference a facsimile image or image zone which
+         *  corresponds to it.
          */
         MeiAttribute* getFacs();
         void setFacs(std::string _facs);
         bool hasFacs();
         void removeFacs();
 
-        void getCoords();
-
-
+/* include <facsmixin> */
 
     private:
         MeiElement *b;

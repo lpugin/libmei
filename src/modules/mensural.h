@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -38,7 +38,8 @@
 
 
 namespace mei {
-/** \brief 
+/** \brief ― A mensural notation symbol that combines two or more notes into a single
+ *  sign.
  */
 class MEI_EXPORT Ligature : public MeiElement {
     public:
@@ -58,7 +59,8 @@ class MEI_EXPORT Ligature : public MeiElement {
         REGISTER_DECLARATION(Ligature);
 };
 
-/** \brief 
+/** \brief (mensuration) ― Collects information about the metrical relationship between a
+ *  note value and the next smaller value; that is, either triple or duple.
  */
 class MEI_EXPORT Mensur : public MeiElement {
     public:
@@ -84,7 +86,7 @@ class MEI_EXPORT Mensur : public MeiElement {
         REGISTER_DECLARATION(Mensur);
 };
 
-/** \brief 
+/** \brief (proportion) ― Description of note duration as arithmetic ratio.
  */
 class MEI_EXPORT Proport : public MeiElement {
     public:

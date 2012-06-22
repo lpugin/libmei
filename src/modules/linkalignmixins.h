@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -36,7 +36,9 @@ class AlignmentMixIn {
     public:
         explicit AlignmentMixIn(MeiElement *b);
         virtual ~AlignmentMixIn();
-        /** \brief 
+        /** \brief indicates the point of occurrence of this feature along a time line.
+         * 
+         *  Its value must be the ID of a <when> element.
          */
         MeiAttribute* getWhen();
         void setWhen(std::string _when);

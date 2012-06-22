@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -34,7 +34,8 @@
 
 
 namespace mei {
-/** \brief 
+/** \brief ― Contains a representation of some written source in the form of a set of
+ *  images rather than as transcribed or encoded text.
  */
 class MEI_EXPORT Facsimile : public MeiElement {
     public:
@@ -51,7 +52,9 @@ class MEI_EXPORT Facsimile : public MeiElement {
         REGISTER_DECLARATION(Facsimile);
 };
 
-/** \brief 
+/** \brief ― Defines a writing surface in terms of a rectangular coordinate space,
+ *  optionally grouping one or more graphic representations of that space, and
+ *  rectangular zones of interest within it.
  */
 class MEI_EXPORT Surface : public MeiElement {
     public:
@@ -71,7 +74,7 @@ class MEI_EXPORT Surface : public MeiElement {
         REGISTER_DECLARATION(Surface);
 };
 
-/** \brief 
+/** \brief ― Defines a rectangular area contained within a surface.
  */
 class MEI_EXPORT Zone : public MeiElement {
     public:

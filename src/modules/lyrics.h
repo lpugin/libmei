@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -38,7 +38,7 @@
 
 
 namespace mei {
-/** \brief 
+/** \brief ― Vocally performed 'text' of a musical composition, such as a song or opera.
  */
 class MEI_EXPORT Lyrics : public MeiElement {
     public:
@@ -62,7 +62,7 @@ class MEI_EXPORT Lyrics : public MeiElement {
         REGISTER_DECLARATION(Lyrics);
 };
 
-/** \brief 
+/** \brief ― Lyric verse.
  */
 class MEI_EXPORT Verse : public MeiElement {
     public:

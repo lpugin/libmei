@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -27,9 +27,7 @@
 #include "meielement.h"
 #include "meinamespace.h"
 #include "exceptions.h"
-
-#include "meielement.h"
-#include "meidocument.h"
+/* #include_block */
 
 #include "meicommon.h"
 #include "sharedmixins.h"
@@ -42,18 +40,20 @@
 #include "midimixins.h"
 #include "mensuralmixins.h"
 #include "tablaturemixins.h"
+#include "layoutmixins.h"
 #include <string>
 
 
 namespace mei {
-/** \brief 
+/** \brief (abbreviation) ― A generic element for 1) a shortened form of a word,
+ *  including an acronym or 2) a shorthand notation.
  */
 class MEI_EXPORT Abbr : public MeiElement {
     public:
         Abbr();
         Abbr(const Abbr& other);
         virtual ~Abbr();
-        /** \brief 
+        /** \brief records the expansion of a text abbreviation.
          */
         MeiAttribute* getExpan();
         void setExpan(std::string _expan);
@@ -76,7 +76,7 @@ class MEI_EXPORT Abbr : public MeiElement {
         REGISTER_DECLARATION(Abbr);
 };
 
-/** \brief 
+/** \brief (accidental) ― Records a temporary alteration to the pitch of a note.
  */
 class MEI_EXPORT Accid : public MeiElement {
     public:
@@ -110,7 +110,7 @@ class MEI_EXPORT Accid : public MeiElement {
         REGISTER_DECLARATION(Accid);
 };
 
-/** \brief 
+/** \brief ― Name of an actor appearing within a cast list.
  */
 class MEI_EXPORT Actor : public MeiElement {
     public:
@@ -128,7 +128,7 @@ class MEI_EXPORT Actor : public MeiElement {
         REGISTER_DECLARATION(Actor);
 };
 
-/** \brief 
+/** \brief (address line) ― Single line of a postal address.
  */
 class MEI_EXPORT AddrLine : public MeiElement {
     public:
@@ -146,7 +146,8 @@ class MEI_EXPORT AddrLine : public MeiElement {
         REGISTER_DECLARATION(AddrLine);
 };
 
-/** \brief 
+/** \brief ― Contains a postal address, for example of a publisher, an organization, or
+ *  an individual.
  */
 class MEI_EXPORT Address : public MeiElement {
     public:
@@ -164,7 +165,8 @@ class MEI_EXPORT Address : public MeiElement {
         REGISTER_DECLARATION(Address);
 };
 
-/** \brief 
+/** \brief (annotation) ― Provides a short statement explaining the text or indicating
+ *  the basis for an assertion.
  */
 class MEI_EXPORT Annot : public MeiElement {
     public:
@@ -197,7 +199,7 @@ class MEI_EXPORT Annot : public MeiElement {
         REGISTER_DECLARATION(Annot);
 };
 
-/** \brief 
+/** \brief (articulation) ― An indication of how to play a note or chord.
  */
 class MEI_EXPORT Artic : public MeiElement {
     public:
@@ -231,7 +233,8 @@ class MEI_EXPORT Artic : public MeiElement {
         REGISTER_DECLARATION(Artic);
 };
 
-/** \brief 
+/** \brief ― Vertical line drawn through one or more staves that divides musical notation
+ *  into metrical units.
  */
 class MEI_EXPORT BarLine : public MeiElement {
     public:
@@ -239,15 +242,7 @@ class MEI_EXPORT BarLine : public MeiElement {
         BarLine(const BarLine& other);
         virtual ~BarLine();
 
-        std::string getLayerIdent();
-        MeiElement* getLayer();
-
-        std::string getStaffIdent();
-        MeiElement* getStaff();
-
-        MeiElement* getSystem();
-
-
+/* include <barLine> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -266,7 +261,7 @@ class MEI_EXPORT BarLine : public MeiElement {
         REGISTER_DECLARATION(BarLine);
 };
 
-/** \brief 
+/** \brief (bibliographic reference) ― Provides a citation for a published work.
  */
 class MEI_EXPORT Bibl : public MeiElement {
     public:
@@ -285,7 +280,8 @@ class MEI_EXPORT Bibl : public MeiElement {
         REGISTER_DECLARATION(Bibl);
 };
 
-/** \brief 
+/** \brief ― Contains the whole of a single musical text, excluding any front or back
+ *  matter.
  */
 class MEI_EXPORT Body : public MeiElement {
     public:
@@ -302,7 +298,7 @@ class MEI_EXPORT Body : public MeiElement {
         REGISTER_DECLARATION(Body);
 };
 
-/** \brief 
+/** \brief ― A label which accompanies an illustration or a table.
  */
 class MEI_EXPORT Caption : public MeiElement {
     public:
@@ -320,7 +316,8 @@ class MEI_EXPORT Caption : public MeiElement {
         REGISTER_DECLARATION(Caption);
 };
 
-/** \brief 
+/** \brief (cast group) ― Groups one or more individual castItem elements within a cast
+ *  list.
  */
 class MEI_EXPORT CastGrp : public MeiElement {
     public:
@@ -338,7 +335,8 @@ class MEI_EXPORT CastGrp : public MeiElement {
         REGISTER_DECLARATION(CastGrp);
 };
 
-/** \brief 
+/** \brief ― Contains a single entry within a cast list, describing either a single role
+ *  or a list of non-speaking roles.
  */
 class MEI_EXPORT CastItem : public MeiElement {
     public:
@@ -356,7 +354,7 @@ class MEI_EXPORT CastItem : public MeiElement {
         REGISTER_DECLARATION(CastItem);
 };
 
-/** \brief 
+/** \brief ― Contains a single cast list or dramatis personae.
  */
 class MEI_EXPORT CastList : public MeiElement {
     public:
@@ -374,7 +372,8 @@ class MEI_EXPORT CastList : public MeiElement {
         REGISTER_DECLARATION(CastList);
 };
 
-/** \brief 
+/** \brief ― A simultaneous sounding of two or more notes in the same layer *with the
+ *  same duration*.
  */
 class MEI_EXPORT Chord : public MeiElement {
     public:
@@ -382,15 +381,7 @@ class MEI_EXPORT Chord : public MeiElement {
         Chord(const Chord& other);
         virtual ~Chord();
 
-        std::string getLayerIdent();
-        MeiElement* getLayer();
-
-        std::string getStaffIdent();
-        MeiElement* getStaff();
-
-        MeiElement* getSystem();
-
-
+/* include <chord> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -431,7 +422,8 @@ class MEI_EXPORT Chord : public MeiElement {
         REGISTER_DECLARATION(Chord);
 };
 
-/** \brief 
+/** \brief ― Indication of the exact location of a particular note on the staff and,
+ *  therefore, the other notes as well.
  */
 class MEI_EXPORT Clef : public MeiElement {
     public:
@@ -439,15 +431,7 @@ class MEI_EXPORT Clef : public MeiElement {
         Clef(const Clef& other);
         virtual ~Clef();
 
-        std::string getLayerIdent();
-        MeiElement* getLayer();
-
-        std::string getStaffIdent();
-        MeiElement* getStaff();
-
-        MeiElement* getSystem();
-
-
+/* include <clef> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -465,7 +449,7 @@ class MEI_EXPORT Clef : public MeiElement {
         REGISTER_DECLARATION(Clef);
 };
 
-/** \brief 
+/** \brief (clef group) ― A set of simultaneously-occurring clefs.
  */
 class MEI_EXPORT ClefGrp : public MeiElement {
     public:
@@ -488,7 +472,10 @@ class MEI_EXPORT ClefGrp : public MeiElement {
         REGISTER_DECLARATION(ClefGrp);
 };
 
-/** \brief 
+/** \brief ― Symbol placed at the end of a line of music to indicate the first note of
+ *  the next line.
+ * 
+ *  Sometimes called a "direct".
  */
 class MEI_EXPORT Custos : public MeiElement {
     public:
@@ -496,15 +483,7 @@ class MEI_EXPORT Custos : public MeiElement {
         Custos(const Custos& other);
         virtual ~Custos();
 
-        std::string getLayerIdent();
-        MeiElement* getLayer();
-
-        std::string getStaffIdent();
-        MeiElement* getStaff();
-
-        MeiElement* getSystem();
-
-
+/* include <custos> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -521,14 +500,14 @@ class MEI_EXPORT Custos : public MeiElement {
         REGISTER_DECLARATION(Custos);
 };
 
-/** \brief 
+/** \brief ― A date in any format, including a date range.
  */
 class MEI_EXPORT Date : public MeiElement {
     public:
         Date();
         Date(const Date& other);
         virtual ~Date();
-        /** \brief 
+        /** \brief provides a regularized, authorized value.
          */
         MeiAttribute* getReg();
         void setReg(std::string _reg);
@@ -551,7 +530,9 @@ class MEI_EXPORT Date : public MeiElement {
         REGISTER_DECLARATION(Date);
 };
 
-/** \brief 
+/** \brief (directive) ― A text expression that is on the score (typically above, below,
+ *  or between staves, but not on the staff) not encoded elsewhere in more specific
+ *  elements, such as <tempo> or <dynam>.
  */
 class MEI_EXPORT Dir : public MeiElement {
     public:
@@ -588,7 +569,7 @@ class MEI_EXPORT Dir : public MeiElement {
         REGISTER_DECLARATION(Dir);
 };
 
-/** \brief 
+/** \brief ― Dot of augmentation or division.
  */
 class MEI_EXPORT Dot : public MeiElement {
     public:
@@ -618,7 +599,7 @@ class MEI_EXPORT Dot : public MeiElement {
         REGISTER_DECLARATION(Dot);
 };
 
-/** \brief 
+/** \brief (dynamic) ― Indication of the volume of a note, phrase, or section of music.
  */
 class MEI_EXPORT Dynam : public MeiElement {
     public:
@@ -655,7 +636,13 @@ class MEI_EXPORT Dynam : public MeiElement {
         REGISTER_DECLARATION(Dynam);
 };
 
-/** \brief 
+/** \brief (edition designation) ― A word or text phrase that indicates a difference in
+ *  either content or form between the item being described and a related item
+ *  previously issued by the same publisher/distributor (e.g.
+ * 
+ *  2nd edition, version 2.0, etc.), or simultaneously issued by either the same
+ *  publisher/distributor or another publisher/distributor (e.g. large print
+ *  edition, British edition, etc.).
  */
 class MEI_EXPORT Edition : public MeiElement {
     public:
@@ -672,7 +659,8 @@ class MEI_EXPORT Edition : public MeiElement {
         REGISTER_DECLARATION(Edition);
 };
 
-/** \brief 
+/** \brief ― Alternative ending for a repeated passage of music; i.e., prima volta,
+ *  seconda volta, etc.
  */
 class MEI_EXPORT Ending : public MeiElement {
     public:
@@ -693,14 +681,14 @@ class MEI_EXPORT Ending : public MeiElement {
         REGISTER_DECLARATION(Ending);
 };
 
-/** \brief 
+/** \brief (expansion) ― Contains the expansion of an abbreviation.
  */
 class MEI_EXPORT Expan : public MeiElement {
     public:
         Expan();
         Expan(const Expan& other);
         virtual ~Expan();
-        /** \brief 
+        /** \brief captures the unabbreviated form of the text.
          */
         MeiAttribute* getAbbr();
         void setAbbr(std::string _abbr);
@@ -723,7 +711,8 @@ class MEI_EXPORT Expan : public MeiElement {
         REGISTER_DECLARATION(Expan);
 };
 
-/** \brief 
+/** \brief ― Indicates how a section may be programmatically expanded into its 'through-
+ *  composed' form.
  */
 class MEI_EXPORT Expansion : public MeiElement {
     public:
@@ -742,7 +731,10 @@ class MEI_EXPORT Expansion : public MeiElement {
         REGISTER_DECLARATION(Expansion);
 };
 
-/** \brief 
+/** \brief (forme work) ― This element is intended for capture of header/footer material
+ *  that is non-repeating; that is, occuring on isolated pages.
+ * 
+ *  For recurring headers and footers use pgHead* and pgFoot* elements.
  */
 class MEI_EXPORT Fw : public MeiElement {
     public:
@@ -761,7 +753,9 @@ class MEI_EXPORT Fw : public MeiElement {
         REGISTER_DECLARATION(Fw);
 };
 
-/** \brief 
+/** \brief ― Contains a composite musical text, grouping together a sequence of distinct
+ *  musical texts (or groups of such musical texts) which are regarded as a unit for
+ *  some purpose, for example, the collected works of a composer.
  */
 class MEI_EXPORT Group : public MeiElement {
     public:
@@ -778,7 +772,8 @@ class MEI_EXPORT Group : public MeiElement {
         REGISTER_DECLARATION(Group);
 };
 
-/** \brief 
+/** \brief (group symbol) ― A brace or bracket used to group two or more staves of a
+ *  score or part.
  */
 class MEI_EXPORT GrpSym : public MeiElement {
     public:
@@ -802,7 +797,8 @@ class MEI_EXPORT GrpSym : public MeiElement {
         REGISTER_DECLARATION(GrpSym);
 };
 
-/** \brief 
+/** \brief ― An alpha-numeric string that establishes the identity of the described
+ *  material.
  */
 class MEI_EXPORT Identifier : public MeiElement {
     public:
@@ -821,7 +817,7 @@ class MEI_EXPORT Identifier : public MeiElement {
         REGISTER_DECLARATION(Identifier);
 };
 
-/** \brief 
+/** \brief (incipit) ― The opening music and/or words of a composition.
  */
 class MEI_EXPORT Incip : public MeiElement {
     public:
@@ -839,7 +835,7 @@ class MEI_EXPORT Incip : public MeiElement {
         REGISTER_DECLARATION(Incip);
 };
 
-/** \brief 
+/** \brief (instrument definition) ― MIDI instrument declaration.
  */
 class MEI_EXPORT InstrDef : public MeiElement {
     public:
@@ -857,7 +853,7 @@ class MEI_EXPORT InstrDef : public MeiElement {
         REGISTER_DECLARATION(InstrDef);
 };
 
-/** \brief 
+/** \brief (instrument group) ― Collects MIDI instrument definitions.
  */
 class MEI_EXPORT InstrGrp : public MeiElement {
     public:
@@ -873,14 +869,14 @@ class MEI_EXPORT InstrGrp : public MeiElement {
         REGISTER_DECLARATION(InstrGrp);
 };
 
-/** \brief 
+/** \brief (key accidental) ― Accidental in a key signature.
  */
 class MEI_EXPORT KeyAccid : public MeiElement {
     public:
         KeyAccid();
         KeyAccid(const KeyAccid& other);
         virtual ~KeyAccid();
-        /** \brief 
+        /** \brief records the function of the dot.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
@@ -902,14 +898,14 @@ class MEI_EXPORT KeyAccid : public MeiElement {
         REGISTER_DECLARATION(KeyAccid);
 };
 
-/** \brief 
+/** \brief (key signature) ― Written key signature.
  */
 class MEI_EXPORT KeySig : public MeiElement {
     public:
         KeySig();
         KeySig(const KeySig& other);
         virtual ~KeySig();
-        /** \brief 
+        /** \brief indicates major, minor, or other tonality.
          */
         MeiAttribute* getMode();
         void setMode(std::string _mode);
@@ -927,7 +923,7 @@ class MEI_EXPORT KeySig : public MeiElement {
         REGISTER_DECLARATION(KeySig);
 };
 
-/** \brief 
+/** \brief ― A text string that identifies a staff, staff group, or contentItem.
  */
 class MEI_EXPORT Label : public MeiElement {
     public:
@@ -946,7 +942,7 @@ class MEI_EXPORT Label : public MeiElement {
         REGISTER_DECLARATION(Label);
 };
 
-/** \brief 
+/** \brief ― An independent stream of events on a staff.
  */
 class MEI_EXPORT Layer : public MeiElement {
     public:
@@ -969,7 +965,7 @@ class MEI_EXPORT Layer : public MeiElement {
         REGISTER_DECLARATION(Layer);
 };
 
-/** \brief 
+/** \brief (layer definition) ― Container for layer meta-information.
  */
 class MEI_EXPORT LayerDef : public MeiElement {
     public:
@@ -994,14 +990,15 @@ class MEI_EXPORT LayerDef : public MeiElement {
         REGISTER_DECLARATION(LayerDef);
 };
 
-/** \brief 
+/** \brief (line break) ― An empty formatting element that forces text to begin on a new
+ *  line.
  */
 class MEI_EXPORT Lb : public MeiElement {
     public:
         Lb();
         Lb(const Lb& other);
         virtual ~Lb();
-        /** \brief 
+        /** \brief records the function of an accidental.
          */
         MeiAttribute* getFunc();
         void setFunc(std::string _func);
@@ -1019,7 +1016,7 @@ class MEI_EXPORT Lb : public MeiElement {
         REGISTER_DECLARATION(Lb);
 };
 
-/** \brief 
+/** \brief (musical division) ― contains a subdivision of the body of a musical text.
  */
 class MEI_EXPORT Mdiv : public MeiElement {
     public:
@@ -1038,7 +1035,8 @@ class MEI_EXPORT Mdiv : public MeiElement {
         REGISTER_DECLARATION(Mdiv);
 };
 
-/** \brief 
+/** \brief ― Contains a single MEI-conformant document, consisting of an MEI header and a
+ *  musical text, either in isolation or as part of an meiCorpus element.
  */
 class MEI_EXPORT Mei : public MeiElement {
     public:
@@ -1054,7 +1052,8 @@ class MEI_EXPORT Mei : public MeiElement {
         REGISTER_DECLARATION(Mei);
 };
 
-/** \brief 
+/** \brief ― Contains a single musical text of any kind, whether unitary or composite,
+ *  for example, an etude, opera, song cycle, symphony, or anthology of piano solos.
  */
 class MEI_EXPORT Music : public MeiElement {
     public:
@@ -1072,7 +1071,7 @@ class MEI_EXPORT Music : public MeiElement {
         REGISTER_DECLARATION(Music);
 };
 
-/** \brief 
+/** \brief ― Proper noun or noun phrase.
  */
 class MEI_EXPORT Name : public MeiElement {
     public:
@@ -1095,7 +1094,7 @@ class MEI_EXPORT Name : public MeiElement {
         REGISTER_DECLARATION(Name);
 };
 
-/** \brief 
+/** \brief ― A single pitched event.
  */
 class MEI_EXPORT Note : public MeiElement {
     public:
@@ -1103,15 +1102,7 @@ class MEI_EXPORT Note : public MeiElement {
         Note(const Note& other);
         virtual ~Note();
 
-        std::string getLayerIdent();
-        MeiElement* getLayer();
-
-        std::string getStaffIdent();
-        MeiElement* getStaff();
-
-        MeiElement* getSystem();
-
-
+/* include <note> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1168,7 +1159,7 @@ class MEI_EXPORT Note : public MeiElement {
         REGISTER_DECLARATION(Note);
 };
 
-/** \brief 
+/** \brief (number) ― Numeric information in any form.
  */
 class MEI_EXPORT Num : public MeiElement {
     public:
@@ -1187,7 +1178,7 @@ class MEI_EXPORT Num : public MeiElement {
         REGISTER_DECLARATION(Num);
 };
 
-/** \brief 
+/** \brief (paragraph) ― One or more text phrases that form a logical prose passage.
  */
 class MEI_EXPORT P : public MeiElement {
     public:
@@ -1207,7 +1198,7 @@ class MEI_EXPORT P : public MeiElement {
         REGISTER_DECLARATION(P);
 };
 
-/** \brief 
+/** \brief (padding) ― An indication of extra visual space between notational elements.
  */
 class MEI_EXPORT Pad : public MeiElement {
     public:
@@ -1215,15 +1206,7 @@ class MEI_EXPORT Pad : public MeiElement {
         Pad(const Pad& other);
         virtual ~Pad();
 
-        std::string getLayerIdent();
-        MeiElement* getLayer();
-
-        std::string getStaffIdent();
-        MeiElement* getStaff();
-
-        MeiElement* getSystem();
-
-
+/* include <pad> */
 
         CommonMixIn    m_Common;
         PadLogMixIn    m_PadLog;
@@ -1236,7 +1219,8 @@ class MEI_EXPORT Pad : public MeiElement {
         REGISTER_DECLARATION(Pad);
 };
 
-/** \brief 
+/** \brief ― An alternative visual rendition of the score from a particular performer's
+ *  (or group of performers') point of view.
  */
 class MEI_EXPORT Part : public MeiElement {
     public:
@@ -1256,7 +1240,7 @@ class MEI_EXPORT Part : public MeiElement {
         REGISTER_DECLARATION(Part);
 };
 
-/** \brief 
+/** \brief ― Provides a container for performers' parts.
  */
 class MEI_EXPORT Parts : public MeiElement {
     public:
@@ -1276,7 +1260,8 @@ class MEI_EXPORT Parts : public MeiElement {
         REGISTER_DECLARATION(Parts);
 };
 
-/** \brief 
+/** \brief (page break) ― An empty formatting element that forces text to begin on a new
+ *  page.
  */
 class MEI_EXPORT Pb : public MeiElement {
     public:
@@ -1293,12 +1278,14 @@ class MEI_EXPORT Pb : public MeiElement {
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
         PbVisMixIn    m_PbVis;
+        LayoutMixIn    m_Layout;
 
     private:
         REGISTER_DECLARATION(Pb);
 };
 
-/** \brief 
+/** \brief (page description) ― Contains a brief prose description of the appearance or
+ *  description of the content of a physical page.
  */
 class MEI_EXPORT PgDesc : public MeiElement {
     public:
@@ -1315,7 +1302,7 @@ class MEI_EXPORT PgDesc : public MeiElement {
         REGISTER_DECLARATION(PgDesc);
 };
 
-/** \brief 
+/** \brief (page footer) ― A running footer on the first page.
  */
 class MEI_EXPORT PgFoot : public MeiElement {
     public:
@@ -1333,7 +1320,7 @@ class MEI_EXPORT PgFoot : public MeiElement {
         REGISTER_DECLARATION(PgFoot);
 };
 
-/** \brief 
+/** \brief (page footer 2) ― A running footer on the pages following the first.
  */
 class MEI_EXPORT PgFoot2 : public MeiElement {
     public:
@@ -1351,7 +1338,7 @@ class MEI_EXPORT PgFoot2 : public MeiElement {
         REGISTER_DECLARATION(PgFoot2);
 };
 
-/** \brief 
+/** \brief (page header) ― A running header on the first page.
  */
 class MEI_EXPORT PgHead : public MeiElement {
     public:
@@ -1369,7 +1356,7 @@ class MEI_EXPORT PgHead : public MeiElement {
         REGISTER_DECLARATION(PgHead);
 };
 
-/** \brief 
+/** \brief (page header 2) ― A running header on the pages following the first.
  */
 class MEI_EXPORT PgHead2 : public MeiElement {
     public:
@@ -1387,7 +1374,7 @@ class MEI_EXPORT PgHead2 : public MeiElement {
         REGISTER_DECLARATION(PgHead2);
 };
 
-/** \brief 
+/** \brief ― Indication of 1) a "unified melodic idea" or 2) performance technique.
  */
 class MEI_EXPORT Phrase : public MeiElement {
     public:
@@ -1427,32 +1414,35 @@ class MEI_EXPORT Phrase : public MeiElement {
         REGISTER_DECLARATION(Phrase);
 };
 
-/** \brief 
+/** \brief (render) ― A formatting element indicating special visual rendering, e.g.,
+ *  bold or italicized, of a text word or phrase.
  */
 class MEI_EXPORT Rend : public MeiElement {
     public:
         Rend();
         Rend(const Rend& other);
         virtual ~Rend();
-        /** \brief 
+        /** \brief used to extend the values of the rend attribute.
          */
         MeiAttribute* getAltrend();
         void setAltrend(std::string _altrend);
         bool hasAltrend();
         void removeAltrend();
-        /** \brief 
+        /** \brief describes the line style of the curve.
          */
         MeiAttribute* getRend();
         void setRend(std::string _rend);
         bool hasRend();
         void removeRend();
-        /** \brief 
+        /** \brief A positive value for rotation rotates the text in a counter-clockwise fashion,
+         *  while negative values produce clockwise rotation.
          */
         MeiAttribute* getRotation();
         void setRotation(std::string _rotation);
         bool hasRotation();
         void removeRotation();
-        /** \brief 
+        /** \brief specifies the vertical position of the element content relative to the
+         *  surrounding text.
          */
         MeiAttribute* getValign();
         void setValign(std::string _valign);
@@ -1471,7 +1461,7 @@ class MEI_EXPORT Rend : public MeiElement {
         REGISTER_DECLARATION(Rend);
 };
 
-/** \brief 
+/** \brief ― Institution or agency which holds a bibliographic item.
  */
 class MEI_EXPORT Repository : public MeiElement {
     public:
@@ -1494,7 +1484,7 @@ class MEI_EXPORT Repository : public MeiElement {
         REGISTER_DECLARATION(Repository);
 };
 
-/** \brief 
+/** \brief ― A non-sounding event found in the source being transcribed.
  */
 class MEI_EXPORT Rest : public MeiElement {
     public:
@@ -1502,15 +1492,7 @@ class MEI_EXPORT Rest : public MeiElement {
         Rest(const Rest& other);
         virtual ~Rest();
 
-        std::string getLayerIdent();
-        MeiElement* getLayer();
-
-        std::string getStaffIdent();
-        MeiElement* getStaff();
-
-        MeiElement* getSystem();
-
-
+/* include <rest> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1542,7 +1524,7 @@ class MEI_EXPORT Rest : public MeiElement {
         REGISTER_DECLARATION(Rest);
 };
 
-/** \brief 
+/** \brief ― Name of a dramatic role, as given in a cast list.
  */
 class MEI_EXPORT Role : public MeiElement {
     public:
@@ -1560,7 +1542,7 @@ class MEI_EXPORT Role : public MeiElement {
         REGISTER_DECLARATION(Role);
 };
 
-/** \brief 
+/** \brief (role description) ― Describes a character's role in a drama.
  */
 class MEI_EXPORT RoleDesc : public MeiElement {
     public:
@@ -1578,7 +1560,8 @@ class MEI_EXPORT RoleDesc : public MeiElement {
         REGISTER_DECLARATION(RoleDesc);
 };
 
-/** \brief 
+/** \brief (system break) ― An empty formatting element that forces musical notation to
+ *  begin on a new line.
  */
 class MEI_EXPORT Sb : public MeiElement {
     public:
@@ -1594,12 +1577,13 @@ class MEI_EXPORT Sb : public MeiElement {
         SbVisMixIn    m_SbVis;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
+        LayoutMixIn    m_Layout;
 
     private:
         REGISTER_DECLARATION(Sb);
 };
 
-/** \brief 
+/** \brief ― Full score view of the musical content.
  */
 class MEI_EXPORT Score : public MeiElement {
     public:
@@ -1619,7 +1603,7 @@ class MEI_EXPORT Score : public MeiElement {
         REGISTER_DECLARATION(Score);
 };
 
-/** \brief 
+/** \brief (score definition) ― Container for score meta-information.
  */
 class MEI_EXPORT ScoreDef : public MeiElement {
     public:
@@ -1667,7 +1651,7 @@ class MEI_EXPORT ScoreDef : public MeiElement {
         REGISTER_DECLARATION(ScoreDef);
 };
 
-/** \brief 
+/** \brief ― Segment of music data.
  */
 class MEI_EXPORT Section : public MeiElement {
     public:
@@ -1690,7 +1674,10 @@ class MEI_EXPORT Section : public MeiElement {
         REGISTER_DECLARATION(Section);
 };
 
-/** \brief 
+/** \brief ― A placeholder used to fill an incomplete measure, layer, etc.
+ * 
+ *  most often so that the combined duration of the events equals the number of
+ *  beats in the measure.
  */
 class MEI_EXPORT Space : public MeiElement {
     public:
@@ -1698,15 +1685,7 @@ class MEI_EXPORT Space : public MeiElement {
         Space(const Space& other);
         virtual ~Space();
 
-        std::string getLayerIdent();
-        MeiElement* getLayer();
-
-        std::string getStaffIdent();
-        MeiElement* getStaff();
-
-        MeiElement* getSystem();
-
-
+/* include <space> */
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
@@ -1728,20 +1707,21 @@ class MEI_EXPORT Space : public MeiElement {
         REGISTER_DECLARATION(Space);
 };
 
-/** \brief 
+/** \brief (stacked text) ― An inline table with a single column.
  */
 class MEI_EXPORT Stack : public MeiElement {
     public:
         Stack();
         Stack(const Stack& other);
         virtual ~Stack();
-        /** \brief 
+        /** \brief indicates the delimiter used to mark the portions of text that are to be
+         *  stacked.
          */
         MeiAttribute* getDelim();
         void setDelim(std::string _delim);
         bool hasDelim();
         void removeDelim();
-        /** \brief 
+        /** \brief specifies how the stacked text components should be aligned.
          */
         MeiAttribute* getAlign();
         void setAlign(std::string _align);
@@ -1758,7 +1738,12 @@ class MEI_EXPORT Stack : public MeiElement {
         REGISTER_DECLARATION(Stack);
 };
 
-/** \brief 
+/** \brief ― A group of equidistant horizontal lines on which notes are placed in order
+ *  to represent pitch or a grouping element for individual 'strands' of notes,
+ *  rests, etc.
+ * 
+ *  that may or may not actually be rendered on staff lines; that is, both
+ *  diastematic and non-diastematic signs.
  */
 class MEI_EXPORT Staff : public MeiElement {
     public:
@@ -1781,7 +1766,7 @@ class MEI_EXPORT Staff : public MeiElement {
         REGISTER_DECLARATION(Staff);
 };
 
-/** \brief 
+/** \brief (staff definition) ― Container for staff meta-information.
  */
 class MEI_EXPORT StaffDef : public MeiElement {
     public:
@@ -1830,7 +1815,7 @@ class MEI_EXPORT StaffDef : public MeiElement {
         REGISTER_DECLARATION(StaffDef);
 };
 
-/** \brief 
+/** \brief (staff group) ― A group of bracketed or braced staves.
  */
 class MEI_EXPORT StaffGrp : public MeiElement {
     public:
@@ -1853,7 +1838,7 @@ class MEI_EXPORT StaffGrp : public MeiElement {
         REGISTER_DECLARATION(StaffGrp);
 };
 
-/** \brief 
+/** \brief (syllable) ― Individual lyric syllable.
  */
 class MEI_EXPORT Syl : public MeiElement {
     public:
@@ -1879,7 +1864,8 @@ class MEI_EXPORT Syl : public MeiElement {
         REGISTER_DECLARATION(Syl);
 };
 
-/** \brief 
+/** \brief ― Text and symbols descriptive of tempo, mood, or style, e.g., "allarg.", "a
+ *  tempo", "cantabile", "Moderato", "[qtrnote]=60", "Moderato [qtrnote] =60").
  */
 class MEI_EXPORT Tempo : public MeiElement {
     public:
@@ -1914,14 +1900,14 @@ class MEI_EXPORT Tempo : public MeiElement {
         REGISTER_DECLARATION(Tempo);
 };
 
-/** \brief 
+/** \brief ― Title of a bibliographic entity.
  */
 class MEI_EXPORT Title : public MeiElement {
     public:
         Title();
         Title(const Title& other);
         virtual ~Title();
-        /** \brief 
+        /** \brief indicates the bibliographic level for a title.
          */
         MeiAttribute* getLevel();
         void setLevel(std::string _level);
@@ -1942,7 +1928,7 @@ class MEI_EXPORT Title : public MeiElement {
         REGISTER_DECLARATION(Title);
 };
 
-/** \brief 
+/** \brief ― Contains a transcription of the title page of a text.
  */
 class MEI_EXPORT TitlePage : public MeiElement {
     public:

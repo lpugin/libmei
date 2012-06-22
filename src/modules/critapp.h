@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011 Andrew Hankinson, Alastair Porter, Jamie Klassen, Mahtab Ghamsari-Esfahani, Gregory Burlet
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -37,7 +37,7 @@
 
 
 namespace mei {
-/** \brief 
+/** \brief (apparatus) ― Contains one or more alternative encodings.
  */
 class MEI_EXPORT App : public MeiElement {
     public:
@@ -54,7 +54,7 @@ class MEI_EXPORT App : public MeiElement {
         REGISTER_DECLARATION(App);
 };
 
-/** \brief 
+/** \brief (lemma) ― Contains the lemma, or base text, of a textual variation.
  */
 class MEI_EXPORT Lem : public MeiElement {
     public:
@@ -79,7 +79,7 @@ class MEI_EXPORT Lem : public MeiElement {
         REGISTER_DECLARATION(Lem);
 };
 
-/** \brief 
+/** \brief (reading) ― Contains a single reading within a textual variation.
  */
 class MEI_EXPORT Rdg : public MeiElement {
     public:
