@@ -184,7 +184,7 @@ MeiElement* XmlImportImpl::xmlNodeToMeiElement(xmlNode *el) {
             }
         }
     }
-    std::cout << el->name << std::endl;
+    
     MeiElement *obj = MeiFactory::createInstance((const char*)el->name, id);
     obj->setAttributes(attributes);
 
