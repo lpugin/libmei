@@ -37,7 +37,7 @@
 
 
 namespace mei {
-/** \brief (apparatus) ― Contains one or more alternative encodings.
+/** \brief (apparatus) – Contains one or more alternative encodings.
  */
 class MEI_EXPORT App : public MeiElement {
     public:
@@ -54,7 +54,7 @@ class MEI_EXPORT App : public MeiElement {
         REGISTER_DECLARATION(App);
 };
 
-/** \brief (lemma) ― Contains the lemma, or base text, of a textual variation.
+/** \brief (lemma) – Contains the lemma, or base text, of a textual variation.
  */
 class MEI_EXPORT Lem : public MeiElement {
     public:
@@ -79,7 +79,7 @@ class MEI_EXPORT Lem : public MeiElement {
         REGISTER_DECLARATION(Lem);
 };
 
-/** \brief (reading) ― Contains a single reading within a textual variation.
+/** \brief (reading) – Contains a single reading within a textual variation.
  */
 class MEI_EXPORT Rdg : public MeiElement {
     public:

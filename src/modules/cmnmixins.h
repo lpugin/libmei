@@ -125,19 +125,6 @@ class BeamingLogMixIn {
         virtual ~BeamingLogMixIn();
         /** \brief provides an example of how automated beaming (including secondary beams) is to
          *  be performed.
-         * 
-         *  It can be used to set a default beaming pattern to be used when no beaming is
-         *  indicated at the event level. beam.group must contain a comma-separated list of
-         *  time values that add up to a measure, e.g., in 4/4 time '4,4,4,4' indicates each
-         *  quarter note worth of shorter notes would be beamed together. Parentheses can be
-         *  used to indicate sub-groupings of secondary beams. For example, '(4.,4.,4.)' in
-         *  9/8 meter indicates one outer beam per measure with secondary beams broken at
-         *  each dotted quarter duration, while a measure of 16th notes in 4/4 with
-         *  beam.group equal to '(4,4),(4,4)' will result in a primary beam covering all the
-         *  notes and secondary beams each group of 4 notes. This beaming "directive" can be
-         *  overridden by using <beam> elements. If neither <beam> elements or the
-         *  beam.group attribute is used, then no beaming is rendered. Beaming can be
-         *  'turned off' by setting beam.group to an empty string.
          */
         MeiAttribute* getBeamGroup();
         void setBeamGroup(std::string _beamgroup);
@@ -276,10 +263,10 @@ class ExpandableMixIn {
         MeiElement *b;
 };
 
-class FTremGesMixIn {
+class FTremLogMixIn {
     public:
-        explicit FTremGesMixIn(MeiElement *b);
-        virtual ~FTremGesMixIn();
+        explicit FTremLogMixIn(MeiElement *b);
+        virtual ~FTremLogMixIn();
         /** \brief records the function of the dot.
          */
         MeiAttribute* getForm();
@@ -697,7 +684,7 @@ class TierendMixIn {
     public:
         explicit TierendMixIn(MeiElement *b);
         virtual ~TierendMixIn();
-        /** \brief describes the line style of the tie
+        /** \brief describes the line style of the tie.
          */
         MeiAttribute* getTieRend();
         void setTieRend(std::string _tierend);
@@ -705,6 +692,23 @@ class TierendMixIn {
         void removeTieRend();
 
 /* include <tie.rendmixin> */
+
+    private:
+        MeiElement *b;
+};
+
+class TremmeasuredMixIn {
+    public:
+        explicit TremmeasuredMixIn(MeiElement *b);
+        virtual ~TremmeasuredMixIn();
+        /** \brief the performed duration of an individual note in a measured tremolo.
+         */
+        MeiAttribute* getMeasperf();
+        void setMeasperf(std::string _measperf);
+        bool hasMeasperf();
+        void removeMeasperf();
+
+/* include <measperfmixin> */
 
     private:
         MeiElement *b;

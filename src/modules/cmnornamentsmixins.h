@@ -56,6 +56,26 @@ class MordentLogMixIn {
         MeiElement *b;
 };
 
+class OrnamMixIn {
+    public:
+        explicit OrnamMixIn(MeiElement *b);
+        virtual ~OrnamMixIn();
+        /** \brief indicates that this element has an attached ornament.
+         * 
+         *  If visual information about the ornament is needed, then one of the elements
+         *  that represents an ornament (mordent, trill, or turn) should be employed.
+         */
+        MeiAttribute* getOrnam();
+        void setOrnam(std::string _ornam);
+        bool hasOrnam();
+        void removeOrnam();
+
+/* include <ornammixin> */
+
+    private:
+        MeiElement *b;
+};
+
 class OrnamentaccidMixIn {
     public:
         explicit OrnamentaccidMixIn(MeiElement *b);

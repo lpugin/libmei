@@ -80,16 +80,14 @@ class MEI_EXPORT LaidOutLayer : public MeiElement {
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         CleffingLogMixIn    m_CleffingLog;
-        KeySigsLogMixIn    m_KeySigsLog;
-        MetersLogMixIn    m_MetersLog;
         TranspositionMixIn    m_Transposition;
         StaffDefVisMixIn    m_StaffDefVis;
         CleffingVisMixIn    m_CleffingVis;
         DistancesMixIn    m_Distances;
-        KeySigsVisMixIn    m_KeySigsVis;
+        KeySigDefaultVisMixIn    m_KeySigDefaultVis;
         LabelsAddlMixIn    m_LabelsAddl;
         LyricstyleMixIn    m_Lyricstyle;
-        MetersVisMixIn    m_MetersVis;
+        MeterSigDefaultVisMixIn    m_MeterSigDefaultVis;
         MultinummeasuresMixIn    m_Multinummeasures;
         OnelinestaffMixIn    m_Onelinestaff;
         ScalableMixIn    m_Scalable;
@@ -100,7 +98,7 @@ class MEI_EXPORT LaidOutLayer : public MeiElement {
         RehearsalMixIn    m_Rehearsal;
         SlurrendMixIn    m_Slurrend;
         TierendMixIn    m_Tierend;
-        MensurationVisMixIn    m_MensurationVis;
+        MensurDefaultVisMixIn    m_MensurDefaultVis;
 
     private:
         REGISTER_DECLARATION(LaidOutLayer);
@@ -122,16 +120,14 @@ class MEI_EXPORT LaidOutStaff : public MeiElement {
         Visualoffset2HoMixIn    m_Visualoffset2Ho;
         StaffidentMixIn    m_Staffident;
         CleffingLogMixIn    m_CleffingLog;
-        KeySigsLogMixIn    m_KeySigsLog;
-        MetersLogMixIn    m_MetersLog;
         TranspositionMixIn    m_Transposition;
         StaffDefVisMixIn    m_StaffDefVis;
         CleffingVisMixIn    m_CleffingVis;
         DistancesMixIn    m_Distances;
-        KeySigsVisMixIn    m_KeySigsVis;
+        KeySigDefaultVisMixIn    m_KeySigDefaultVis;
         LabelsAddlMixIn    m_LabelsAddl;
         LyricstyleMixIn    m_Lyricstyle;
-        MetersVisMixIn    m_MetersVis;
+        MeterSigDefaultVisMixIn    m_MeterSigDefaultVis;
         MultinummeasuresMixIn    m_Multinummeasures;
         OnelinestaffMixIn    m_Onelinestaff;
         ScalableMixIn    m_Scalable;
@@ -142,7 +138,7 @@ class MEI_EXPORT LaidOutStaff : public MeiElement {
         RehearsalMixIn    m_Rehearsal;
         SlurrendMixIn    m_Slurrend;
         TierendMixIn    m_Tierend;
-        MensurationVisMixIn    m_MensurationVis;
+        MensurDefaultVisMixIn    m_MensurDefaultVis;
 
     private:
         REGISTER_DECLARATION(LaidOutStaff);

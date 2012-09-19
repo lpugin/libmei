@@ -7,56 +7,6 @@ using mei::MeiAttribute;
 using mei::MeiNamespace;
 using mei::AttributeNotFoundException;
 
-mei::Abbr::Abbr() :
-    MeiElement("abbr"),
-    m_Common(this),
-    m_Edit(this),
-    m_Responsibility(this),
-    m_Source(this),
-    m_Facsimile(this),
-    m_Lang(this),
-    m_Handident(this),
-    m_Sequence(this),
-    m_Typed(this)
-{
-}
-REGISTER_DEFINITION(mei::Abbr, "abbr");
-mei::Abbr::~Abbr() {}
-mei::Abbr::Abbr(const Abbr& other) :
-    MeiElement(other),
-    m_Common(this),
-    m_Edit(this),
-    m_Responsibility(this),
-    m_Source(this),
-    m_Facsimile(this),
-    m_Lang(this),
-    m_Handident(this),
-    m_Sequence(this),
-    m_Typed(this)
-{
-}
-
-MeiAttribute* mei::Abbr::getExpan() {
-    if (!hasAttribute("expan")) {
-        throw AttributeNotFoundException("expan");
-    }
-    return getAttribute("expan");
-};
-
-void mei::Abbr::setExpan(std::string _expan) {
-    MeiAttribute *a = new MeiAttribute("expan", _expan);
-    addAttribute(a);
-};
-
-bool mei::Abbr::hasExpan() {
-    return hasAttribute("expan");
-};
-
-void mei::Abbr::removeExpan() {
-    removeAttribute("expan");
-};
-/* include <abbr> */
-
 mei::Accid::Accid() :
     MeiElement("accid"),
     m_Common(this),
@@ -70,8 +20,8 @@ mei::Accid::Accid() :
     m_Staffident(this),
     m_Layerident(this),
     m_Staffloc(this),
-    m_AccidVis(this),
     m_Color(this),
+    m_Placement(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
@@ -95,8 +45,8 @@ mei::Accid::Accid(const Accid& other) :
     m_Staffident(this),
     m_Layerident(this),
     m_Staffloc(this),
-    m_AccidVis(this),
     m_Color(this),
+    m_Placement(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
@@ -434,6 +384,7 @@ mei::Chord::Chord() :
     m_Tupletpresent(this),
     m_Beamed(this),
     m_Lvpresent(this),
+    m_Ornam(this),
     m_ChordVis(this),
     m_Altsym(this),
     m_Color(this),
@@ -474,6 +425,7 @@ mei::Chord::Chord(const Chord& other) :
     m_Tupletpresent(this),
     m_Beamed(this),
     m_Lvpresent(this),
+    m_Ornam(this),
     m_ChordVis(this),
     m_Altsym(this),
     m_Color(this),
@@ -623,25 +575,6 @@ mei::Date::Date(const Date& other) :
 {
 }
 
-MeiAttribute* mei::Date::getReg() {
-    if (!hasAttribute("reg")) {
-        throw AttributeNotFoundException("reg");
-    }
-    return getAttribute("reg");
-};
-
-void mei::Date::setReg(std::string _reg) {
-    MeiAttribute *a = new MeiAttribute("reg", _reg);
-    addAttribute(a);
-};
-
-bool mei::Date::hasReg() {
-    return hasAttribute("reg");
-};
-
-void mei::Date::removeReg() {
-    removeAttribute("reg");
-};
 /* include <date> */
 
 mei::Dir::Dir() :
@@ -843,56 +776,6 @@ mei::Ending::Ending(const Ending& other) :
 
 /* include <ending> */
 
-mei::Expan::Expan() :
-    MeiElement("expan"),
-    m_Common(this),
-    m_Edit(this),
-    m_Responsibility(this),
-    m_Source(this),
-    m_Facsimile(this),
-    m_Lang(this),
-    m_Handident(this),
-    m_Sequence(this),
-    m_Typed(this)
-{
-}
-REGISTER_DEFINITION(mei::Expan, "expan");
-mei::Expan::~Expan() {}
-mei::Expan::Expan(const Expan& other) :
-    MeiElement(other),
-    m_Common(this),
-    m_Edit(this),
-    m_Responsibility(this),
-    m_Source(this),
-    m_Facsimile(this),
-    m_Lang(this),
-    m_Handident(this),
-    m_Sequence(this),
-    m_Typed(this)
-{
-}
-
-MeiAttribute* mei::Expan::getAbbr() {
-    if (!hasAttribute("abbr")) {
-        throw AttributeNotFoundException("abbr");
-    }
-    return getAttribute("abbr");
-};
-
-void mei::Expan::setAbbr(std::string _abbr) {
-    MeiAttribute *a = new MeiAttribute("abbr", _abbr);
-    addAttribute(a);
-};
-
-bool mei::Expan::hasAbbr() {
-    return hasAttribute("abbr");
-};
-
-void mei::Expan::removeAbbr() {
-    removeAttribute("abbr");
-};
-/* include <expan> */
-
 mei::Expansion::Expansion() :
     MeiElement("expansion"),
     m_Common(this),
@@ -985,6 +868,7 @@ mei::GrpSym::GrpSym(const GrpSym& other) :
 
 mei::Identifier::Identifier() :
     MeiElement("identifier"),
+    m_Authorized(this),
     m_Bibl(this),
     m_Common(this),
     m_Facsimile(this),
@@ -995,6 +879,7 @@ REGISTER_DEFINITION(mei::Identifier, "identifier");
 mei::Identifier::~Identifier() {}
 mei::Identifier::Identifier(const Identifier& other) :
     MeiElement(other),
+    m_Authorized(this),
     m_Bibl(this),
     m_Common(this),
     m_Facsimile(this),
@@ -1022,40 +907,6 @@ mei::Incip::Incip(const Incip& other) :
 }
 
 /* include <incip> */
-
-mei::InstrDef::InstrDef() :
-    MeiElement("instrDef"),
-    m_Common(this),
-    m_Channelized(this),
-    m_Midiinstrument(this)
-{
-}
-REGISTER_DEFINITION(mei::InstrDef, "instrDef");
-mei::InstrDef::~InstrDef() {}
-mei::InstrDef::InstrDef(const InstrDef& other) :
-    MeiElement(other),
-    m_Common(this),
-    m_Channelized(this),
-    m_Midiinstrument(this)
-{
-}
-
-/* include <instrDef> */
-
-mei::InstrGrp::InstrGrp() :
-    MeiElement("instrGrp"),
-    m_Common(this)
-{
-}
-REGISTER_DEFINITION(mei::InstrGrp, "instrGrp");
-mei::InstrGrp::~InstrGrp() {}
-mei::InstrGrp::InstrGrp(const InstrGrp& other) :
-    MeiElement(other),
-    m_Common(this)
-{
-}
-
-/* include <instrGrp> */
 
 mei::KeyAccid::KeyAccid() :
     MeiElement("keyAccid"),
@@ -1109,6 +960,9 @@ mei::KeySig::KeySig() :
     MeiElement("keySig"),
     m_Common(this),
     m_Facsimile(this),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_KeySigLog(this),
     m_Accidental(this),
     m_Pitch(this)
 {
@@ -1119,30 +973,14 @@ mei::KeySig::KeySig(const KeySig& other) :
     MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_KeySigLog(this),
     m_Accidental(this),
     m_Pitch(this)
 {
 }
 
-MeiAttribute* mei::KeySig::getMode() {
-    if (!hasAttribute("mode")) {
-        throw AttributeNotFoundException("mode");
-    }
-    return getAttribute("mode");
-};
-
-void mei::KeySig::setMode(std::string _mode) {
-    MeiAttribute *a = new MeiAttribute("mode", _mode);
-    addAttribute(a);
-};
-
-bool mei::KeySig::hasMode() {
-    return hasAttribute("mode");
-};
-
-void mei::KeySig::removeMode() {
-    removeAttribute("mode");
-};
 /* include <keySig> */
 
 mei::Label::Label() :
@@ -1373,6 +1211,7 @@ mei::Note::Note() :
     m_Tupletpresent(this),
     m_Beamed(this),
     m_Lvpresent(this),
+    m_Ornam(this),
     m_NoteLogMensural(this),
     m_NoteVis(this),
     m_Altsym(this),
@@ -1429,6 +1268,7 @@ mei::Note::Note(const Note& other) :
     m_Tupletpresent(this),
     m_Beamed(this),
     m_Lvpresent(this),
+    m_Ornam(this),
     m_NoteLogMensural(this),
     m_NoteVis(this),
     m_Altsym(this),
@@ -2049,21 +1889,20 @@ mei::ScoreDef::ScoreDef() :
     m_Common(this),
     m_CleffingLog(this),
     m_DurationDefault(this),
-    m_KeySigsLog(this),
-    m_MetersLog(this),
+    m_KeySigDefaultLog(this),
+    m_MeterSigDefaultLog(this),
     m_Octavedefault(this),
     m_Transposition(this),
     m_BeamingLog(this),
-    m_MensurationLog(this),
-    m_MensurLog(this),
+    m_MensurDefaultLog(this),
     m_DurationRatio(this),
     m_ScoreDefVis(this),
     m_Barplacement(this),
     m_CleffingVis(this),
     m_Distances(this),
-    m_KeySigsVis(this),
+    m_KeySigDefaultVis(this),
     m_Lyricstyle(this),
-    m_MetersVis(this),
+    m_MeterSigDefaultVis(this),
     m_Multinummeasures(this),
     m_Onelinestaff(this),
     m_Textstyle(this),
@@ -2073,7 +1912,7 @@ mei::ScoreDef::ScoreDef() :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurationVis(this),
+    m_MensurDefaultVis(this),
     m_ScoreDefGes(this),
     m_Channelized(this),
     m_Timebase(this),
@@ -2088,21 +1927,20 @@ mei::ScoreDef::ScoreDef(const ScoreDef& other) :
     m_Common(this),
     m_CleffingLog(this),
     m_DurationDefault(this),
-    m_KeySigsLog(this),
-    m_MetersLog(this),
+    m_KeySigDefaultLog(this),
+    m_MeterSigDefaultLog(this),
     m_Octavedefault(this),
     m_Transposition(this),
     m_BeamingLog(this),
-    m_MensurationLog(this),
-    m_MensurLog(this),
+    m_MensurDefaultLog(this),
     m_DurationRatio(this),
     m_ScoreDefVis(this),
     m_Barplacement(this),
     m_CleffingVis(this),
     m_Distances(this),
-    m_KeySigsVis(this),
+    m_KeySigDefaultVis(this),
     m_Lyricstyle(this),
-    m_MetersVis(this),
+    m_MeterSigDefaultVis(this),
     m_Multinummeasures(this),
     m_Onelinestaff(this),
     m_Textstyle(this),
@@ -2112,7 +1950,7 @@ mei::ScoreDef::ScoreDef(const ScoreDef& other) :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurationVis(this),
+    m_MensurDefaultVis(this),
     m_ScoreDefGes(this),
     m_Channelized(this),
     m_Timebase(this),
@@ -2287,22 +2125,21 @@ mei::StaffDef::StaffDef() :
     m_Declaring(this),
     m_CleffingLog(this),
     m_DurationDefault(this),
-    m_KeySigsLog(this),
-    m_MetersLog(this),
+    m_KeySigDefaultLog(this),
+    m_MeterSigDefaultLog(this),
     m_Octavedefault(this),
     m_Transposition(this),
     m_BeamingLog(this),
     m_StaffDefLogMensural(this),
-    m_MensurationLog(this),
-    m_MensurLog(this),
+    m_MensurDefaultLog(this),
     m_DurationRatio(this),
     m_StaffDefVis(this),
     m_CleffingVis(this),
     m_Distances(this),
-    m_KeySigsVis(this),
+    m_KeySigDefaultVis(this),
     m_LabelsAddl(this),
     m_Lyricstyle(this),
-    m_MetersVis(this),
+    m_MeterSigDefaultVis(this),
     m_Multinummeasures(this),
     m_Onelinestaff(this),
     m_Scalable(this),
@@ -2313,7 +2150,7 @@ mei::StaffDef::StaffDef() :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurationVis(this),
+    m_MensurDefaultVis(this),
     m_Instrumentident(this),
     m_Timebase(this),
     m_StaffDefGesTablature(this)
@@ -2327,22 +2164,21 @@ mei::StaffDef::StaffDef(const StaffDef& other) :
     m_Declaring(this),
     m_CleffingLog(this),
     m_DurationDefault(this),
-    m_KeySigsLog(this),
-    m_MetersLog(this),
+    m_KeySigDefaultLog(this),
+    m_MeterSigDefaultLog(this),
     m_Octavedefault(this),
     m_Transposition(this),
     m_BeamingLog(this),
     m_StaffDefLogMensural(this),
-    m_MensurationLog(this),
-    m_MensurLog(this),
+    m_MensurDefaultLog(this),
     m_DurationRatio(this),
     m_StaffDefVis(this),
     m_CleffingVis(this),
     m_Distances(this),
-    m_KeySigsVis(this),
+    m_KeySigDefaultVis(this),
     m_LabelsAddl(this),
     m_Lyricstyle(this),
-    m_MetersVis(this),
+    m_MeterSigDefaultVis(this),
     m_Multinummeasures(this),
     m_Onelinestaff(this),
     m_Scalable(this),
@@ -2353,7 +2189,7 @@ mei::StaffDef::StaffDef(const StaffDef& other) :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurationVis(this),
+    m_MensurDefaultVis(this),
     m_Instrumentident(this),
     m_Timebase(this),
     m_StaffDefGesTablature(this)

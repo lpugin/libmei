@@ -31,14 +31,45 @@
 
 #include "meicommon.h"
 #include "sharedmixins.h"
-#include "facsimilemixins.h"
 #include "edittransmixins.h"
 #include "critappmixins.h"
+#include "facsimilemixins.h"
 #include <string>
 
 
 namespace mei {
-/** \brief (addition) ― Marks an addition to the text.
+/** \brief (abbreviation) – A generic element for 1) a shortened form of a word,
+ *  including an acronym or 2) a shorthand notation.
+ */
+class MEI_EXPORT Abbr : public MeiElement {
+    public:
+        Abbr();
+        Abbr(const Abbr& other);
+        virtual ~Abbr();
+        /** \brief records the expansion of a text abbreviation.
+         */
+        MeiAttribute* getExpan();
+        void setExpan(std::string _expan);
+        bool hasExpan();
+        void removeExpan();
+
+/* include <abbr> */
+
+        CommonMixIn    m_Common;
+        EditMixIn    m_Edit;
+        ResponsibilityMixIn    m_Responsibility;
+        SourceMixIn    m_Source;
+        FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
+        HandidentMixIn    m_Handident;
+        SequenceMixIn    m_Sequence;
+        TypedMixIn    m_Typed;
+
+    private:
+        REGISTER_DECLARATION(Abbr);
+};
+
+/** \brief (addition) – Marks an addition to the text.
  */
 class MEI_EXPORT Add : public MeiElement {
     public:
@@ -60,7 +91,7 @@ class MEI_EXPORT Add : public MeiElement {
         REGISTER_DECLARATION(Add);
 };
 
-/** \brief ― Groups a number of alternative encodings for the same point in a text.
+/** \brief – Groups a number of alternative encodings for the same point in a text.
  */
 class MEI_EXPORT Choice : public MeiElement {
     public:
@@ -76,7 +107,7 @@ class MEI_EXPORT Choice : public MeiElement {
         REGISTER_DECLARATION(Choice);
 };
 
-/** \brief (correction) ― Contains the correct form of an apparent erroneous passage.
+/** \brief (correction) – Contains the correct form of an apparent erroneous passage.
  */
 class MEI_EXPORT Corr : public MeiElement {
     public:
@@ -97,7 +128,7 @@ class MEI_EXPORT Corr : public MeiElement {
         REGISTER_DECLARATION(Corr);
 };
 
-/** \brief ― Contains an area of damage to the carrier.
+/** \brief – Contains an area of damage to the physical medium.
  */
 class MEI_EXPORT Damage : public MeiElement {
     public:
@@ -124,7 +155,7 @@ class MEI_EXPORT Damage : public MeiElement {
         REGISTER_DECLARATION(Damage);
 };
 
-/** \brief (deletion) ― Contains information deleted, marked as deleted, or otherwise
+/** \brief (deletion) – Contains information deleted, marked as deleted, or otherwise
  *  indicated as superfluous or spurious in the copy text by an author, scribe,
  *  annotator, or corrector.
  */
@@ -151,7 +182,37 @@ class MEI_EXPORT Del : public MeiElement {
         REGISTER_DECLARATION(Del);
 };
 
-/** \brief ― Indicates a point where material has been omitted in a transcription,
+/** \brief (expansion) – Contains the expansion of an abbreviation.
+ */
+class MEI_EXPORT Expan : public MeiElement {
+    public:
+        Expan();
+        Expan(const Expan& other);
+        virtual ~Expan();
+        /** \brief captures the unabbreviated form of the text.
+         */
+        MeiAttribute* getAbbr();
+        void setAbbr(std::string _abbr);
+        bool hasAbbr();
+        void removeAbbr();
+
+/* include <expan> */
+
+        CommonMixIn    m_Common;
+        EditMixIn    m_Edit;
+        ResponsibilityMixIn    m_Responsibility;
+        SourceMixIn    m_Source;
+        FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
+        HandidentMixIn    m_Handident;
+        SequenceMixIn    m_Sequence;
+        TypedMixIn    m_Typed;
+
+    private:
+        REGISTER_DECLARATION(Expan);
+};
+
+/** \brief – Indicates a point where material has been omitted in a transcription,
  *  whether as part of sampling practice or for editorial reasons described in the
  *  MEI header.
  */
@@ -169,14 +230,14 @@ class MEI_EXPORT Gap : public MeiElement {
         SourceMixIn    m_Source;
         ExtentMixIn    m_Extent;
         HandidentMixIn    m_Handident;
-        MeasurementMixIn    m_Measurement;
         ReasonidentMixIn    m_Reasonident;
+        MeasurementMixIn    m_Measurement;
 
     private:
         REGISTER_DECLARATION(Gap);
 };
 
-/** \brief ― Marks the beginning of a passage written in a new hand, or of a change in
+/** \brief – Marks the beginning of a passage written in a new hand, or of a change in
  *  the scribe, writing style, ink or character of the document hand.
  */
 class MEI_EXPORT HandShift : public MeiElement {
@@ -220,7 +281,7 @@ class MEI_EXPORT HandShift : public MeiElement {
         REGISTER_DECLARATION(HandShift);
 };
 
-/** \brief (original) ― Contains material which is marked as following the original,
+/** \brief (original) – Contains material which is marked as following the original,
  *  rather than being normalized or corrected.
  */
 class MEI_EXPORT Orig : public MeiElement {
@@ -242,7 +303,7 @@ class MEI_EXPORT Orig : public MeiElement {
         REGISTER_DECLARATION(Orig);
 };
 
-/** \brief (regularization) ― Contains material which has been regularized or normalized
+/** \brief (regularization) – Contains material which has been regularized or normalized
  *  in some sense.
  */
 class MEI_EXPORT Reg : public MeiElement {
@@ -263,7 +324,7 @@ class MEI_EXPORT Reg : public MeiElement {
         REGISTER_DECLARATION(Reg);
 };
 
-/** \brief ― Indicates restoration of material to an earlier state by cancellation of an
+/** \brief – Indicates restoration of material to an earlier state by cancellation of an
  *  editorial or authorial marking or instruction.
  */
 class MEI_EXPORT Restore : public MeiElement {
@@ -281,6 +342,9 @@ class MEI_EXPORT Restore : public MeiElement {
 /* include <restore> */
 
         CommonMixIn    m_Common;
+        EditMixIn    m_Edit;
+        ResponsibilityMixIn    m_Responsibility;
+        SourceMixIn    m_Source;
         FacsimileMixIn    m_Facsimile;
         HandidentMixIn    m_Handident;
         SequenceMixIn    m_Sequence;
@@ -290,7 +354,7 @@ class MEI_EXPORT Restore : public MeiElement {
         REGISTER_DECLARATION(Restore);
 };
 
-/** \brief ― Contains apparently incorrect or inaccurate material.
+/** \brief – Contains apparently incorrect or inaccurate material.
  */
 class MEI_EXPORT Sic : public MeiElement {
     public:
@@ -307,7 +371,7 @@ class MEI_EXPORT Sic : public MeiElement {
         REGISTER_DECLARATION(Sic);
 };
 
-/** \brief (substitution) ― Groups transcriptional elements when the combination is to be
+/** \brief (substitution) – Groups transcriptional elements when the combination is to be
  *  regarded as a single intervention in the text.
  */
 class MEI_EXPORT Subst : public MeiElement {
@@ -329,7 +393,7 @@ class MEI_EXPORT Subst : public MeiElement {
         REGISTER_DECLARATION(Subst);
 };
 
-/** \brief ― Contains material supplied by the transcriber or editor in place of text
+/** \brief – Contains material supplied by the transcriber or editor in place of text
  *  which cannot be read, either because of physical damage or loss in the original
  *  or because it is illegible for any reason.
  */
@@ -353,7 +417,7 @@ class MEI_EXPORT Supplied : public MeiElement {
         REGISTER_DECLARATION(Supplied);
 };
 
-/** \brief ― Contains material that cannot be transcribed with certainty because it is
+/** \brief – Contains material that cannot be transcribed with certainty because it is
  *  illegible or inaudible in the source.
  */
 class MEI_EXPORT Unclear : public MeiElement {

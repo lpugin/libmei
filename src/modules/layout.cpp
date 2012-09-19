@@ -43,16 +43,14 @@ mei::LaidOutLayer::LaidOutLayer() :
     m_Staffident(this),
     m_Layerident(this),
     m_CleffingLog(this),
-    m_KeySigsLog(this),
-    m_MetersLog(this),
     m_Transposition(this),
     m_StaffDefVis(this),
     m_CleffingVis(this),
     m_Distances(this),
-    m_KeySigsVis(this),
+    m_KeySigDefaultVis(this),
     m_LabelsAddl(this),
     m_Lyricstyle(this),
-    m_MetersVis(this),
+    m_MeterSigDefaultVis(this),
     m_Multinummeasures(this),
     m_Onelinestaff(this),
     m_Scalable(this),
@@ -63,7 +61,7 @@ mei::LaidOutLayer::LaidOutLayer() :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurationVis(this)
+    m_MensurDefaultVis(this)
 {
 }
 REGISTER_DEFINITION(mei::LaidOutLayer, "laidOutLayer");
@@ -75,16 +73,14 @@ mei::LaidOutLayer::LaidOutLayer(const LaidOutLayer& other) :
     m_Staffident(this),
     m_Layerident(this),
     m_CleffingLog(this),
-    m_KeySigsLog(this),
-    m_MetersLog(this),
     m_Transposition(this),
     m_StaffDefVis(this),
     m_CleffingVis(this),
     m_Distances(this),
-    m_KeySigsVis(this),
+    m_KeySigDefaultVis(this),
     m_LabelsAddl(this),
     m_Lyricstyle(this),
-    m_MetersVis(this),
+    m_MeterSigDefaultVis(this),
     m_Multinummeasures(this),
     m_Onelinestaff(this),
     m_Scalable(this),
@@ -95,7 +91,7 @@ mei::LaidOutLayer::LaidOutLayer(const LaidOutLayer& other) :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurationVis(this)
+    m_MensurDefaultVis(this)
 {
 }
 
@@ -109,16 +105,14 @@ mei::LaidOutStaff::LaidOutStaff() :
     m_Visualoffset2Ho(this),
     m_Staffident(this),
     m_CleffingLog(this),
-    m_KeySigsLog(this),
-    m_MetersLog(this),
     m_Transposition(this),
     m_StaffDefVis(this),
     m_CleffingVis(this),
     m_Distances(this),
-    m_KeySigsVis(this),
+    m_KeySigDefaultVis(this),
     m_LabelsAddl(this),
     m_Lyricstyle(this),
-    m_MetersVis(this),
+    m_MeterSigDefaultVis(this),
     m_Multinummeasures(this),
     m_Onelinestaff(this),
     m_Scalable(this),
@@ -129,7 +123,7 @@ mei::LaidOutStaff::LaidOutStaff() :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurationVis(this)
+    m_MensurDefaultVis(this)
 {
 }
 REGISTER_DEFINITION(mei::LaidOutStaff, "laidOutStaff");
@@ -142,16 +136,14 @@ mei::LaidOutStaff::LaidOutStaff(const LaidOutStaff& other) :
     m_Visualoffset2Ho(this),
     m_Staffident(this),
     m_CleffingLog(this),
-    m_KeySigsLog(this),
-    m_MetersLog(this),
     m_Transposition(this),
     m_StaffDefVis(this),
     m_CleffingVis(this),
     m_Distances(this),
-    m_KeySigsVis(this),
+    m_KeySigDefaultVis(this),
     m_LabelsAddl(this),
     m_Lyricstyle(this),
-    m_MetersVis(this),
+    m_MeterSigDefaultVis(this),
     m_Multinummeasures(this),
     m_Onelinestaff(this),
     m_Scalable(this),
@@ -162,7 +154,7 @@ mei::LaidOutStaff::LaidOutStaff(const LaidOutStaff& other) :
     m_Rehearsal(this),
     m_Slurrend(this),
     m_Tierend(this),
-    m_MensurationVis(this)
+    m_MensurDefaultVis(this)
 {
 }
 

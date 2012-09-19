@@ -62,8 +62,8 @@ mei::BTrem::BTrem() :
     m_Staffident(this),
     m_Layerident(this),
     m_Numbered(this),
-    m_Slashcount(this),
     m_Numberplacement(this),
+    m_Tremmeasured(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -80,8 +80,8 @@ mei::BTrem::BTrem(const BTrem& other) :
     m_Staffident(this),
     m_Layerident(this),
     m_Numbered(this),
-    m_Slashcount(this),
     m_Numberplacement(this),
+    m_Tremmeasured(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -213,6 +213,7 @@ mei::Bend::Bend() :
     m_Layerident(this),
     m_Startendid(this),
     m_Startid(this),
+    m_DurationTimestamp(this),
     m_Color(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
@@ -242,6 +243,7 @@ mei::Bend::Bend(const Bend& other) :
     m_Layerident(this),
     m_Startendid(this),
     m_Startid(this),
+    m_DurationTimestamp(this),
     m_Color(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
@@ -314,12 +316,13 @@ mei::FTrem::FTrem() :
     MeiElement("fTrem"),
     m_Common(this),
     m_Facsimile(this),
+    m_FTremLog(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
     m_Slashcount(this),
-    m_FTremGes(this),
+    m_Tremmeasured(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -330,12 +333,13 @@ mei::FTrem::FTrem(const FTrem& other) :
     MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
+    m_FTremLog(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
     m_Slashcount(this),
-    m_FTremGes(this),
+    m_Tremmeasured(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -407,6 +411,7 @@ mei::Gliss::Gliss() :
     m_Layerident(this),
     m_Startendid(this),
     m_Startid(this),
+    m_DurationTimestamp(this),
     m_GlissVis(this),
     m_Color(this),
     m_VisualoffsetHo(this),
@@ -435,6 +440,7 @@ mei::Gliss::Gliss(const Gliss& other) :
     m_Layerident(this),
     m_Startendid(this),
     m_Startid(this),
+    m_DurationTimestamp(this),
     m_GlissVis(this),
     m_Color(this),
     m_VisualoffsetHo(this),
@@ -614,12 +620,12 @@ mei::MRest::MRest() :
     MeiElement("mRest"),
     m_Common(this),
     m_Facsimile(this),
+    m_DurationMusical(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
     m_Fermatapresent(this),
-    m_DurationMusical(this),
     m_Altsym(this),
     m_Cutout(this),
     m_VisualoffsetHo(this),
@@ -640,12 +646,12 @@ mei::MRest::MRest(const MRest& other) :
     MeiElement(other),
     m_Common(this),
     m_Facsimile(this),
+    m_DurationMusical(this),
     m_TimestampMusical(this),
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
     m_Fermatapresent(this),
-    m_DurationMusical(this),
     m_Altsym(this),
     m_Cutout(this),
     m_VisualoffsetHo(this),
@@ -742,7 +748,6 @@ mei::MSpace::MSpace() :
     m_Staffident(this),
     m_Layerident(this),
     m_Fermatapresent(this),
-    m_DurationMusical(this),
     m_Altsym(this),
     m_Cutout(this),
     m_Visibility(this),
@@ -764,7 +769,6 @@ mei::MSpace::MSpace(const MSpace& other) :
     m_Staffident(this),
     m_Layerident(this),
     m_Fermatapresent(this),
-    m_DurationMusical(this),
     m_Altsym(this),
     m_Cutout(this),
     m_Visibility(this),
@@ -818,6 +822,31 @@ mei::Measure::Measure(const Measure& other) :
 }
 
 /* include <measure> */
+
+mei::MeterSig::MeterSig() :
+    MeiElement("meterSig"),
+    m_Common(this),
+    m_Facsimile(this),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_MeterSigLog(this),
+    m_MeterSigVis(this)
+{
+}
+REGISTER_DEFINITION(mei::MeterSig, "meterSig");
+mei::MeterSig::~MeterSig() {}
+mei::MeterSig::MeterSig(const MeterSig& other) :
+    MeiElement(other),
+    m_Common(this),
+    m_Facsimile(this),
+    m_CommonAnl(this),
+    m_Alignment(this),
+    m_MeterSigLog(this),
+    m_MeterSigVis(this)
+{
+}
+
+/* include <meterSig> */
 
 mei::MultiRest::MultiRest() :
     MeiElement("multiRest"),

@@ -1023,7 +1023,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 1DEB916408733D950010E9CD /* Build configuration list for PBXProject "libmei" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1715,6 +1715,7 @@
 				8F3367C2159B3839009AAB69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8FA781D01570C39A0031FD74 /* Build configuration list for PBXNativeTarget "mei_static" */ = {
 			isa = XCConfigurationList;

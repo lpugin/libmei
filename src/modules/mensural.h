@@ -38,7 +38,7 @@
 
 
 namespace mei {
-/** \brief ― A mensural notation symbol that combines two or more notes into a single
+/** \brief – A mensural notation symbol that combines two or more notes into a single
  *  sign.
  */
 class MEI_EXPORT Ligature : public MeiElement {
@@ -59,7 +59,7 @@ class MEI_EXPORT Ligature : public MeiElement {
         REGISTER_DECLARATION(Ligature);
 };
 
-/** \brief (mensuration) ― Collects information about the metrical relationship between a
+/** \brief (mensuration) – Collects information about the metrical relationship between a
  *  note value and the next smaller value; that is, either triple or duple.
  */
 class MEI_EXPORT Mensur : public MeiElement {
@@ -74,11 +74,11 @@ class MEI_EXPORT Mensur : public MeiElement {
         FacsimileMixIn    m_Facsimile;
         MensurLogMixIn    m_MensurLog;
         DurationRatioMixIn    m_DurationRatio;
+        SlashcountMixIn    m_Slashcount;
+        StafflocMixIn    m_Staffloc;
         MensurVisMixIn    m_MensurVis;
         ColorMixIn    m_Color;
         RelativesizeMixIn    m_Relativesize;
-        SlashcountMixIn    m_Slashcount;
-        StafflocMixIn    m_Staffloc;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -86,7 +86,7 @@ class MEI_EXPORT Mensur : public MeiElement {
         REGISTER_DECLARATION(Mensur);
 };
 
-/** \brief (proportion) ― Description of note duration as arithmetic ratio.
+/** \brief (proportion) – Description of note duration as arithmetic ratio.
  */
 class MEI_EXPORT Proport : public MeiElement {
     public:
