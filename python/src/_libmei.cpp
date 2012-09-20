@@ -87,6 +87,17 @@ string MeiElementList_Print(MeiElementList x) {
     return res.str();
 }
 
+MeiElement* MeiElementList_PopFromList(MeiElementList* x) {
+    MeiElement* t = x->back();
+    x->pop_back();
+    return t;
+}
+
+void MeiElementList_PushToList(MeiElementList* x, MeiElement* y) {
+    x->insert(x->begin(), y);
+}
+
+
 bool MeiAttributeList_EqualWrap(const MeiAttributeList x, const MeiAttributeList y) { return x == y; }
 bool MeiAttributeList_NEqualWrap(const MeiAttributeList x, const MeiAttributeList y) { return x != y; }
 bool MeiAttributeList_NonZero(const MeiAttributeList x) { return !x.empty(); }
@@ -98,6 +109,16 @@ string MeiAttributeList_Print(MeiAttributeList x) {
     }
     res << "]";
     return res.str();
+}
+
+MeiAttribute* MeiAttributeList_PopFromList(MeiAttributeList* x) {
+    MeiAttribute* t = x->back();
+    x->pop_back();
+    return t;
+}
+
+void MeiAttributeList_PushToList(MeiAttributeList* x, MeiAttribute* y) {
+    x->insert(x->begin(), y);
 }
 
 bool MeiNamespaceList_EqualWrap(const MeiNamespaceList x, const MeiNamespaceList y) { return x == y; }
@@ -113,6 +134,17 @@ string MeiNamespaceList_Print(MeiNamespaceList x) {
     return res.str();
 }
 
+MeiNamespace* MeiNamespaceList_PopFromList(MeiNamespaceList* x) {
+    MeiNamespace* t = x->back();
+    x->pop_back();
+    return t;
+}
+
+void MeiNamespaceList_PushToList(MeiNamespaceList* x, MeiNamespace* y) {
+    x->insert(x->begin(), y);
+}
+
+
 string MeiProcessingInstruction_Print(XmlProcessingInstruction x) { return "<XmlProcessingInstruction " + x.getName() + ":" + x.getValue() + ">"; }
 
 string MeiXmlInstructions_Print(XmlInstructions x) {
@@ -125,13 +157,82 @@ string MeiXmlInstructions_Print(XmlInstructions x) {
     return res.str();
 }
 
+
+bool MeiXmlInstructions_EqualWrap(const XmlInstructions x, const XmlInstructions y) { return x == y; }
+bool MeiXmlInstructions_NEqualWrap(const XmlInstructions x, const XmlInstructions y) { return x != y; }
+bool MeiXmlInstructions_NonZero(const XmlInstructions x) { return !x.empty(); }
+XmlProcessingInstruction* MeiXmlInstructions_PopFromList(XmlInstructions* x) {
+    XmlProcessingInstruction* t = x->back();
+    x->pop_back();
+    return t;
+}
+
+void MeiXmlInstructions_PushToList(XmlInstructions* x, XmlProcessingInstruction* y) {
+    x->insert(x->begin(), y);
+}
+
+/*
+ * Converter for python lists to vector<T>
+ */
+template<typename T>
+struct VectorFromList {
+    VectorFromList() { 
+        converter::registry::push_back(&convertible, &construct, type_id<vector<T*> >()); 
+    }
+
+    static void* convertible(PyObject* obj_ptr){
+        if (!PySequence_Check(obj_ptr)) {
+            return 0;
+        }
+        else {
+            return obj_ptr;
+        }
+    }
+
+    static void construct(PyObject* obj_ptr, converter::rvalue_from_python_stage1_data* data){
+        // Get pointer to memory where the vector will be constructed
+        void* storage = ((converter::rvalue_from_python_storage<std::vector<T*> >*)(data))->storage.bytes;
+
+        // construct the new vector in place using the python list data
+        new (storage) vector<T*>();
+        vector<T*> *v = (vector<T*>*)(storage);
+        long len = PySequence_Size(obj_ptr); 
+        if (len < 0) {
+            abort();
+        }
+
+        v->reserve(len); 
+        
+        // fill the C++ vector from the Python list data
+        for(int i = 0; i < len; i++) { 
+            v->push_back(extract<T*>(PySequence_GetItem(obj_ptr, i)));
+        }
+
+        // stash the pointer location for boost.python
+        data->convertible = storage;
+    }
+};
+
 BOOST_PYTHON_MODULE(_libmei) {
     docstring_options local_docstring_options(true, true, false);
 
+    // initialize converters for python lists to MeiElementList,
+    // MeiAttributeList, and MeiNamespaceList
+    VectorFromList<MeiElement>();
+    VectorFromList<MeiAttribute>();
+    VectorFromList<MeiNamespace>();
+    VectorFromList<XmlProcessingInstruction>();
+
     class_<XmlInstructions, XmlInstructions*>("XmlInstructions")
         .def(vector_indexing_suite<XmlInstructions>())
+        .def("__eq__", &MeiXmlInstructions_EqualWrap)
+        .def("__ne__", &MeiXmlInstructions_NEqualWrap)
+        .def("__iter__", boost::python::iterator<XmlInstructions>())
+        .def("__nonzero__", &MeiXmlInstructions_NonZero)
         .def("__str__", &MeiXmlInstructions_Print)
         .def("__repr__", &MeiXmlInstructions_Print)
+        .def("pop", &MeiXmlInstructions_PopFromList, return_value_policy<reference_existing_object>())
+        .def("push", &MeiXmlInstructions_PushToList)
     ;
 
     class_<XmlProcessingInstruction, XmlProcessingInstruction*>("XmlProcessingInstruction", init<string, string>())
@@ -149,6 +250,9 @@ BOOST_PYTHON_MODULE(_libmei) {
         .def("__nonzero__", &MeiElementList_NonZero)
         .def("__str__", &MeiElementList_Print)
         .def("__repr__", &MeiElementList_Print)
+        .def("pop", &MeiElementList_PopFromList, return_value_policy<reference_existing_object>())
+        .def("push", &MeiElementList_PushToList)
+
     ;
 
     class_<MeiAttributeList>("MeiAttributeList")
@@ -159,6 +263,8 @@ BOOST_PYTHON_MODULE(_libmei) {
         .def("__nonzero__", &MeiAttributeList_NonZero)
         .def("__str__", &MeiAttributeList_Print)
         .def("__repr__", &MeiAttributeList_Print)
+        .def("pop", &MeiAttributeList_PopFromList, return_value_policy<reference_existing_object>())
+        .def("push", &MeiAttributeList_PushToList)
     ;
 
     class_<MeiNamespaceList>("MeiNamespaceList")
@@ -169,6 +275,8 @@ BOOST_PYTHON_MODULE(_libmei) {
         .def("__nonzero__", &MeiNamespaceList_NonZero)
         .def("__str__", &MeiNamespaceList_Print)
         .def("__repr__", &MeiNamespaceList_Print)
+        .def("pop", &MeiNamespaceList_PopFromList, return_value_policy<reference_existing_object>())
+        .def("push", &MeiNamespaceList_PushToList)
     ;
 
     class_<MeiNamespace, MeiNamespace*>("MeiNamespace", init<string, string>())
@@ -187,8 +295,6 @@ BOOST_PYTHON_MODULE(_libmei) {
     void (MeiElement::*setDocument)(MeiDocument*) = &MeiElement::setDocument;
     bool (MeiElement::*hasChildrenBool)() = &MeiElement::hasChildren;
     bool (MeiElement::*hasChildrenArgs)(string) = &MeiElement::hasChildren;
-    void (MeiElement::*printAll)() = &MeiElement::print;
-    void (MeiElement::*printLvl)(int) = &MeiElement::print;
 
     MeiElement* (MeiDocument::*getElementById)(string) = &MeiDocument::getElementById;
     

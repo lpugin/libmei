@@ -59,7 +59,12 @@ class StaffDefGesTablatureMixIn {
     public:
         explicit StaffDefGesTablatureMixIn(MeiElement *b);
         virtual ~StaffDefGesTablatureMixIn();
-        /** \brief provides a *written* pitch and octave for each open string.
+        /** \brief provides a written pitch and octave for each open string, e.g.
+         * 
+         *  "e3 a3 d4 g4 b4 e5" for standard guitar tuning. It should contain the number of
+         *  tokens indicated by the lines attribute. Chromatic alteration may be indicated
+         *  with '-', or 'f', (flat) and '#', or 's' (sharp). Multiple sharps and flats are
+         *  not permitted.
          */
         MeiAttribute* getTabStrings();
         void setTabStrings(std::string _tabstrings);

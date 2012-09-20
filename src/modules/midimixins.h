@@ -131,7 +131,7 @@ class MidivalueMixIn {
     public:
         explicit MidivalueMixIn(MeiElement *b);
         virtual ~MidivalueMixIn();
-        /** \brief MIDI number.
+        /** \brief MIDI number
          */
         MeiAttribute* getVal();
         void setVal(std::string _val);

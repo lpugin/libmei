@@ -38,7 +38,7 @@
 
 
 namespace mei {
-/** \brief (arpeggiation) – Indicates that the notes of a chord are to be performed
+/** \brief (arpeggiation) ― Indicates that the notes of a chord are to be performed
  *  successively rather than simultaneously, usually from lowest to highest.
  * 
  *  Sometimes called a "roll".
@@ -72,7 +72,7 @@ class MEI_EXPORT Arpeg : public MeiElement {
         REGISTER_DECLARATION(Arpeg);
 };
 
-/** \brief (bowed tremolo) – A rapid alternation on a single pitch or chord.
+/** \brief (bowed tremolo) ― A rapid alternation on a single pitch or chord.
  */
 class MEI_EXPORT BTrem : public MeiElement {
     public:
@@ -90,8 +90,8 @@ class MEI_EXPORT BTrem : public MeiElement {
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         NumberedMixIn    m_Numbered;
+        SlashcountMixIn    m_Slashcount;
         NumberplacementMixIn    m_Numberplacement;
-        TremmeasuredMixIn    m_Tremmeasured;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -99,7 +99,7 @@ class MEI_EXPORT BTrem : public MeiElement {
         REGISTER_DECLARATION(BTrem);
 };
 
-/** \brief – A container for a series of explicitly beamed events that begins and ends
+/** \brief ― A container for a series of explicitly beamed events that begins and ends
  *  entirely within a measure.
  */
 class MEI_EXPORT Beam : public MeiElement {
@@ -125,7 +125,7 @@ class MEI_EXPORT Beam : public MeiElement {
         REGISTER_DECLARATION(Beam);
 };
 
-/** \brief (beam span) – Alternative element for explicitly encoding beams, particularly
+/** \brief (beam span) ― Alternative element for explicitly encoding beams, particularly
  *  those which extend across bar lines.
  */
 class MEI_EXPORT BeamSpan : public MeiElement {
@@ -156,7 +156,7 @@ class MEI_EXPORT BeamSpan : public MeiElement {
         REGISTER_DECLARATION(BeamSpan);
 };
 
-/** \brief (beat repeat) – An indication that material on a preceding beat should be
+/** \brief (beat repeat) ― An indication that material on a preceding beat should be
  *  repeated.
  */
 class MEI_EXPORT BeatRpt : public MeiElement {
@@ -184,7 +184,7 @@ class MEI_EXPORT BeatRpt : public MeiElement {
         REGISTER_DECLARATION(BeatRpt);
 };
 
-/** \brief – A variation in pitch (often micro-tonal) upwards or downwards during the
+/** \brief ― A variation in pitch (often micro-tonal) upwards or downwards during the
  *  course of a note.
  */
 class MEI_EXPORT Bend : public MeiElement {
@@ -204,7 +204,6 @@ class MEI_EXPORT Bend : public MeiElement {
         LayeridentMixIn    m_Layerident;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
-        DurationTimestampMixIn    m_DurationTimestamp;
         ColorMixIn    m_Color;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
@@ -224,7 +223,7 @@ class MEI_EXPORT Bend : public MeiElement {
         REGISTER_DECLARATION(Bend);
 };
 
-/** \brief (breath mark) – A indication of a point at which the performer on an
+/** \brief (breath mark) ― A indication of a point at which the performer on an
  *  instrument requiring breath (including the voice) may breathe.
  */
 class MEI_EXPORT Breath : public MeiElement {
@@ -258,7 +257,7 @@ class MEI_EXPORT Breath : public MeiElement {
         REGISTER_DECLARATION(Breath);
 };
 
-/** \brief (fingered tremolo) – A rapid alternation between a pair of notes (or chords or
+/** \brief (fingered tremolo) ― A rapid alternation between a pair of notes (or chords or
  *  perhaps between a note and a chord) that are (usually) farther apart than a
  *  major second.
  */
@@ -272,13 +271,12 @@ class MEI_EXPORT FTrem : public MeiElement {
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
-        FTremLogMixIn    m_FTremLog;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         SlashcountMixIn    m_Slashcount;
-        TremmeasuredMixIn    m_Tremmeasured;
+        FTremGesMixIn    m_FTremGes;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -286,7 +284,7 @@ class MEI_EXPORT FTrem : public MeiElement {
         REGISTER_DECLARATION(FTrem);
 };
 
-/** \brief – An indication placed over a note or rest to indicate that it should be held
+/** \brief ― An indication placed over a note or rest to indicate that it should be held
  *  longer than its written value.
  * 
  *  May also occur over a bar line to indicate the end of a phrase or section.
@@ -325,7 +323,7 @@ class MEI_EXPORT Fermata : public MeiElement {
         REGISTER_DECLARATION(Fermata);
 };
 
-/** \brief (glissando) – A continuous or sliding movement from one pitch to another,
+/** \brief (glissando) ― A continuous or sliding movement from one pitch to another,
  *  usually indicated by a straight or wavy line.
  */
 class MEI_EXPORT Gliss : public MeiElement {
@@ -345,7 +343,6 @@ class MEI_EXPORT Gliss : public MeiElement {
         LayeridentMixIn    m_Layerident;
         StartendidMixIn    m_Startendid;
         StartidMixIn    m_Startid;
-        DurationTimestampMixIn    m_DurationTimestamp;
         GlissVisMixIn    m_GlissVis;
         ColorMixIn    m_Color;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
@@ -364,7 +361,7 @@ class MEI_EXPORT Gliss : public MeiElement {
         REGISTER_DECLARATION(Gliss);
 };
 
-/** \brief – Indicates continuous dynamics expressed on the score as wedge-shaped
+/** \brief ― Indicates continuous dynamics expressed on the score as wedge-shaped
  *  graphics, e.g.
  * 
  *  < and >.
@@ -407,7 +404,7 @@ class MEI_EXPORT Hairpin : public MeiElement {
         REGISTER_DECLARATION(Hairpin);
 };
 
-/** \brief (half-measure repeat) – A half-measure repeat in any meter.
+/** \brief (half-measure repeat) ― A half-measure repeat in any meter.
  */
 class MEI_EXPORT HalfmRpt : public MeiElement {
     public:
@@ -437,7 +434,7 @@ class MEI_EXPORT HalfmRpt : public MeiElement {
         REGISTER_DECLARATION(HalfmRpt);
 };
 
-/** \brief (harp pedal) – Harp pedal diagram.
+/** \brief (harp pedal) ― Harp pedal diagram.
  */
 class MEI_EXPORT HarpPedal : public MeiElement {
     public:
@@ -471,7 +468,7 @@ class MEI_EXPORT HarpPedal : public MeiElement {
         REGISTER_DECLARATION(HarpPedal);
 };
 
-/** \brief (measure rest) – Complete measure rest in any meter.
+/** \brief (measure rest) ― Complete measure rest in any meter.
  */
 class MEI_EXPORT MRest : public MeiElement {
     public:
@@ -483,12 +480,12 @@ class MEI_EXPORT MRest : public MeiElement {
 
         CommonMixIn    m_Common;
         FacsimileMixIn    m_Facsimile;
-        DurationMusicalMixIn    m_DurationMusical;
         TimestampMusicalMixIn    m_TimestampMusical;
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         FermatapresentMixIn    m_Fermatapresent;
+        DurationMusicalMixIn    m_DurationMusical;
         AltsymMixIn    m_Altsym;
         CutoutMixIn    m_Cutout;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
@@ -506,7 +503,7 @@ class MEI_EXPORT MRest : public MeiElement {
         REGISTER_DECLARATION(MRest);
 };
 
-/** \brief (measure repeat) – An indication that the previous measure should be repeated.
+/** \brief (measure repeat) ― An indication that the previous measure should be repeated.
  */
 class MEI_EXPORT MRpt : public MeiElement {
     public:
@@ -532,7 +529,7 @@ class MEI_EXPORT MRpt : public MeiElement {
         REGISTER_DECLARATION(MRpt);
 };
 
-/** \brief (2-measure repeat) – An indication that the previous two measures should be
+/** \brief (2-measure repeat) ― An indication that the previous two measures should be
  *  repeated.
  */
 class MEI_EXPORT MRpt2 : public MeiElement {
@@ -559,7 +556,7 @@ class MEI_EXPORT MRpt2 : public MeiElement {
         REGISTER_DECLARATION(MRpt2);
 };
 
-/** \brief (measure space) – A measure containing only empty space in any meter.
+/** \brief (measure space) ― Complete measure consisting of empty space in any meter.
  */
 class MEI_EXPORT MSpace : public MeiElement {
     public:
@@ -576,6 +573,7 @@ class MEI_EXPORT MSpace : public MeiElement {
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         FermatapresentMixIn    m_Fermatapresent;
+        DurationMusicalMixIn    m_DurationMusical;
         AltsymMixIn    m_Altsym;
         CutoutMixIn    m_Cutout;
         VisibilityMixIn    m_Visibility;
@@ -589,7 +587,7 @@ class MEI_EXPORT MSpace : public MeiElement {
         REGISTER_DECLARATION(MSpace);
 };
 
-/** \brief – Unit of musical time consisting of a fixed number of note-values of a given
+/** \brief ― Unit of musical time consisting of a fixed number of note-values of a given
  *  type, as determined by the prevailing meter, and delimited in musical notation
  *  by two bar lines.
  */
@@ -620,28 +618,7 @@ class MEI_EXPORT Measure : public MeiElement {
         REGISTER_DECLARATION(Measure);
 };
 
-/** \brief (meter signature) – Written meter signature.
- */
-class MEI_EXPORT MeterSig : public MeiElement {
-    public:
-        MeterSig();
-        MeterSig(const MeterSig& other);
-        virtual ~MeterSig();
-
-/* include <meterSig> */
-
-        CommonMixIn    m_Common;
-        FacsimileMixIn    m_Facsimile;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        MeterSigLogMixIn    m_MeterSigLog;
-        MeterSigVisMixIn    m_MeterSigVis;
-
-    private:
-        REGISTER_DECLARATION(MeterSig);
-};
-
-/** \brief (multiple rest) – Multiple measures of rest compressed into a single symbol,
+/** \brief (multiple rest) ― Multiple measures of rest compressed into a single symbol,
  *  frequently found in performer parts.
  */
 class MEI_EXPORT MultiRest : public MeiElement {
@@ -670,7 +647,7 @@ class MEI_EXPORT MultiRest : public MeiElement {
         REGISTER_DECLARATION(MultiRest);
 };
 
-/** \brief (multiple repeat) – Multiple repeated measures.
+/** \brief (multiple repeat) ― Multiple repeated measures.
  */
 class MEI_EXPORT MultiRpt : public MeiElement {
     public:
@@ -696,7 +673,7 @@ class MEI_EXPORT MultiRpt : public MeiElement {
         REGISTER_DECLARATION(MultiRpt);
 };
 
-/** \brief – An indication that a passage should be performed one or more octaves above
+/** \brief ― An indication that a passage should be performed one or more octaves above
  *  or below its written pitch.
  */
 class MEI_EXPORT Octave : public MeiElement {
@@ -734,7 +711,7 @@ class MEI_EXPORT Octave : public MeiElement {
         REGISTER_DECLARATION(Octave);
 };
 
-/** \brief – An alternate notational version *present in the source being transcribed*.
+/** \brief ― An alternate notational version *present in the source being transcribed*.
  */
 class MEI_EXPORT Ossia : public MeiElement {
     public:
@@ -753,7 +730,7 @@ class MEI_EXPORT Ossia : public MeiElement {
         REGISTER_DECLARATION(Ossia);
 };
 
-/** \brief – Piano pedal mark.
+/** \brief ― Piano pedal mark.
  */
 class MEI_EXPORT Pedal : public MeiElement {
     public:
@@ -787,7 +764,7 @@ class MEI_EXPORT Pedal : public MeiElement {
         REGISTER_DECLARATION(Pedal);
 };
 
-/** \brief (rehearsal mark) – In an orchestral score and its corresponding parts, a mark
+/** \brief (rehearsal mark) ― In an orchestral score and its corresponding parts, a mark
  *  indicating a convenient point from which to resume rehearsal after a break.
  */
 class MEI_EXPORT Reh : public MeiElement {
@@ -818,7 +795,7 @@ class MEI_EXPORT Reh : public MeiElement {
         REGISTER_DECLARATION(Reh);
 };
 
-/** \brief – Indication of 1) a "unified melodic idea" or 2) performance technique.
+/** \brief ― Indication of 1) a "unified melodic idea" or 2) performance technique.
  */
 class MEI_EXPORT Slur : public MeiElement {
     public:
@@ -859,7 +836,7 @@ class MEI_EXPORT Slur : public MeiElement {
         REGISTER_DECLARATION(Slur);
 };
 
-/** \brief – An indication that two notes of the same pitch form a single note with their
+/** \brief ― An indication that two notes of the same pitch form a single note with their
  *  combined rhythmic values.
  */
 class MEI_EXPORT Tie : public MeiElement {
@@ -899,7 +876,7 @@ class MEI_EXPORT Tie : public MeiElement {
         REGISTER_DECLARATION(Tie);
 };
 
-/** \brief – A group of notes with "irregular" (sometimes called "irrational") rhythmic
+/** \brief ― A group of notes with "irregular" (sometimes called "irrational") rhythmic
  *  values, for example, three notes in the time normally occupied by two or nine in
  *  the time of five.
  */
@@ -933,7 +910,7 @@ class MEI_EXPORT Tuplet : public MeiElement {
         REGISTER_DECLARATION(Tuplet);
 };
 
-/** \brief (tuplet span) – Alternative element for encoding tuplets, especially useful
+/** \brief (tuplet span) ― Alternative element for encoding tuplets, especially useful
  *  for tuplets that extend across bar lines.
  */
 class MEI_EXPORT TupletSpan : public MeiElement {

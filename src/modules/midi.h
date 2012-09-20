@@ -38,7 +38,7 @@
 
 
 namespace mei {
-/** \brief (control change) – MIDI parameter/control change.
+/** \brief (control change) ― MIDI parameter/control change.
  */
 class MEI_EXPORT Cc : public MeiElement {
     public:
@@ -61,7 +61,7 @@ class MEI_EXPORT Cc : public MeiElement {
         REGISTER_DECLARATION(Cc);
 };
 
-/** \brief (channel) – MIDI channel assignment.
+/** \brief (channel) ― MIDI channel assignment.
  */
 class MEI_EXPORT Chan : public MeiElement {
     public:
@@ -90,7 +90,7 @@ class MEI_EXPORT Chan : public MeiElement {
         REGISTER_DECLARATION(Chan);
 };
 
-/** \brief (channel pressure) – MIDI channel pressure/after touch.
+/** \brief (channel pressure) ― MIDI channel pressure/after touch.
  */
 class MEI_EXPORT ChanPr : public MeiElement {
     public:
@@ -112,7 +112,7 @@ class MEI_EXPORT ChanPr : public MeiElement {
         REGISTER_DECLARATION(ChanPr);
 };
 
-/** \brief – MIDI cue point.
+/** \brief ― MIDI cue point.
  */
 class MEI_EXPORT Cue : public MeiElement {
     public:
@@ -133,7 +133,7 @@ class MEI_EXPORT Cue : public MeiElement {
         REGISTER_DECLARATION(Cue);
 };
 
-/** \brief – Arbitrary MIDI data in hexadecimal form.
+/** \brief ― Arbitrary MIDI data in hexadecimal form.
  */
 class MEI_EXPORT Hex : public MeiElement {
     public:
@@ -154,41 +154,7 @@ class MEI_EXPORT Hex : public MeiElement {
         REGISTER_DECLARATION(Hex);
 };
 
-/** \brief (instrument definition) – MIDI instrument declaration.
- */
-class MEI_EXPORT InstrDef : public MeiElement {
-    public:
-        InstrDef();
-        InstrDef(const InstrDef& other);
-        virtual ~InstrDef();
-
-/* include <instrDef> */
-
-        CommonMixIn    m_Common;
-        ChannelizedMixIn    m_Channelized;
-        MidiinstrumentMixIn    m_Midiinstrument;
-
-    private:
-        REGISTER_DECLARATION(InstrDef);
-};
-
-/** \brief (instrument group) – Collects MIDI instrument definitions.
- */
-class MEI_EXPORT InstrGrp : public MeiElement {
-    public:
-        InstrGrp();
-        InstrGrp(const InstrGrp& other);
-        virtual ~InstrGrp();
-
-/* include <instrGrp> */
-
-        CommonMixIn    m_Common;
-
-    private:
-        REGISTER_DECLARATION(InstrGrp);
-};
-
-/** \brief – MIDI marker meta-event.
+/** \brief ― MIDI marker meta-event.
  */
 class MEI_EXPORT Marker : public MeiElement {
     public:
@@ -209,7 +175,7 @@ class MEI_EXPORT Marker : public MeiElement {
         REGISTER_DECLARATION(Marker);
 };
 
-/** \brief – MIDI text meta-event.
+/** \brief ― MIDI text meta-event.
  */
 class MEI_EXPORT MetaText : public MeiElement {
     public:
@@ -230,7 +196,7 @@ class MEI_EXPORT MetaText : public MeiElement {
         REGISTER_DECLARATION(MetaText);
 };
 
-/** \brief – Container for elements that contain information useful when generating MIDI
+/** \brief ― Container for elements that contain information useful when generating MIDI
  *  output.
  */
 class MEI_EXPORT Midi : public MeiElement {
@@ -251,7 +217,7 @@ class MEI_EXPORT Midi : public MeiElement {
         REGISTER_DECLARATION(Midi);
 };
 
-/** \brief – MIDI note-off event.
+/** \brief ― MIDI note-off event.
  */
 class MEI_EXPORT NoteOff : public MeiElement {
     public:
@@ -273,7 +239,7 @@ class MEI_EXPORT NoteOff : public MeiElement {
         REGISTER_DECLARATION(NoteOff);
 };
 
-/** \brief – MIDI note-on event.
+/** \brief ― MIDI note-on event.
  */
 class MEI_EXPORT NoteOn : public MeiElement {
     public:
@@ -295,7 +261,7 @@ class MEI_EXPORT NoteOn : public MeiElement {
         REGISTER_DECLARATION(NoteOn);
 };
 
-/** \brief – MIDI port.
+/** \brief ― MIDI port.
  */
 class MEI_EXPORT Port : public MeiElement {
     public:
@@ -317,7 +283,7 @@ class MEI_EXPORT Port : public MeiElement {
         REGISTER_DECLARATION(Port);
 };
 
-/** \brief (program) – MIDI program change.
+/** \brief (program) ― MIDI program change.
  */
 class MEI_EXPORT Prog : public MeiElement {
     public:
@@ -339,7 +305,7 @@ class MEI_EXPORT Prog : public MeiElement {
         REGISTER_DECLARATION(Prog);
 };
 
-/** \brief (sequence number) – MIDI sequence number.
+/** \brief (sequence number) ― MIDI sequence number.
  */
 class MEI_EXPORT SeqNum : public MeiElement {
     public:
@@ -368,7 +334,7 @@ class MEI_EXPORT SeqNum : public MeiElement {
         REGISTER_DECLARATION(SeqNum);
 };
 
-/** \brief (track name) – MIDI track/sequence name.
+/** \brief (track name) ― MIDI track/sequence name.
  */
 class MEI_EXPORT TrkName : public MeiElement {
     public:
@@ -389,7 +355,7 @@ class MEI_EXPORT TrkName : public MeiElement {
         REGISTER_DECLARATION(TrkName);
 };
 
-/** \brief (velocity) – MIDI Note-on/off velocity.
+/** \brief (velocity) ― MIDI Note-on/off velocity.
  */
 class MEI_EXPORT Vel : public MeiElement {
     public:

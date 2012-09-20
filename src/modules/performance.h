@@ -32,10 +32,11 @@
 #include "meicommon.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
+#include <string>
 
 
 namespace mei {
-/** \brief (audio/video file) – References an external digital audio or video file.
+/** \brief (audio/video file) ― References an external digital audio or video file.
  */
 class MEI_EXPORT AvFile : public MeiElement {
     public:
@@ -56,27 +57,47 @@ class MEI_EXPORT AvFile : public MeiElement {
         REGISTER_DECLARATION(AvFile);
 };
 
-/** \brief – Defines a time segment of interest within a recording or within a digital
- *  audio or video file.
+/** \brief ― Defines a time segment of interest within a digital audio or video
+ *  recording.
  */
 class MEI_EXPORT Clip : public MeiElement {
     public:
         Clip();
         Clip(const Clip& other);
         virtual ~Clip();
+        /** \brief indication of the absolute start time.
+         */
+        MeiAttribute* getBegin();
+        void setBegin(std::string _begin);
+        bool hasBegin();
+        void removeBegin();
+        /** \brief indication of the absolute end time.
+         */
+        MeiAttribute* getEnd();
+        void setEnd(std::string _end);
+        bool hasEnd();
+        void removeEnd();
+        /** \brief type of values used in the begin/end attributes.
+         * 
+         *  The begin and end attributes can only be interpreted meaningfully in conjunction
+         *  with this attribute.
+         */
+        MeiAttribute* getBetype();
+        void setBetype(std::string _betype);
+        bool hasBetype();
+        void removeBetype();
 
 /* include <clip> */
 
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
-        MediaboundsMixIn    m_Mediabounds;
         StartidMixIn    m_Startid;
 
     private:
         REGISTER_DECLARATION(Clip);
 };
 
-/** \brief – A presentation of one or more musical works.
+/** \brief ― Groups one or more recorded performances.
  */
 class MEI_EXPORT Performance : public MeiElement {
     public:
@@ -93,19 +114,40 @@ class MEI_EXPORT Performance : public MeiElement {
         REGISTER_DECLARATION(Performance);
 };
 
-/** \brief – A recorded performance.
+/** \brief ― Defines a performance in terms of a group of one or more digital audio or
+ *  video representations.
  */
 class MEI_EXPORT Recording : public MeiElement {
     public:
         Recording();
         Recording(const Recording& other);
         virtual ~Recording();
+        /** \brief indication of the absolute start time.
+         */
+        MeiAttribute* getBegin();
+        void setBegin(std::string _begin);
+        bool hasBegin();
+        void removeBegin();
+        /** \brief indication of the absolute end time.
+         */
+        MeiAttribute* getEnd();
+        void setEnd(std::string _end);
+        bool hasEnd();
+        void removeEnd();
+        /** \brief type of values used in the begin/end attributes.
+         * 
+         *  The begin and end attributes can only be interpreted meaningfully in conjunction
+         *  with this attribute.
+         */
+        MeiAttribute* getBetype();
+        void setBetype(std::string _betype);
+        bool hasBetype();
+        void removeBetype();
 
 /* include <recording> */
 
         CommonMixIn    m_Common;
         DeclaringMixIn    m_Declaring;
-        MediaboundsMixIn    m_Mediabounds;
         StartidMixIn    m_Startid;
 
     private:

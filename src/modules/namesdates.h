@@ -37,7 +37,7 @@
 
 
 namespace mei {
-/** \brief (corporate name) – Identifies an organization or group of people that acts as
+/** \brief (corporate name) ― Identifies an organization or group of people that acts as
  *  a single entity.
  */
 class MEI_EXPORT CorpName : public MeiElement {
@@ -65,7 +65,7 @@ class MEI_EXPORT CorpName : public MeiElement {
         REGISTER_DECLARATION(CorpName);
 };
 
-/** \brief (geographic name) – The proper noun designation for a place, natural feature,
+/** \brief (geographic name) ― The proper noun designation for a place, natural feature,
  *  or political jurisdiction.
  */
 class MEI_EXPORT GeogName : public MeiElement {
@@ -92,7 +92,7 @@ class MEI_EXPORT GeogName : public MeiElement {
         REGISTER_DECLARATION(GeogName);
 };
 
-/** \brief (period name) – A label that describes a period of time, such as 'Baroque' or
+/** \brief (period name) ― A label that describes a period of time, such as 'Baroque' or
  *  '3rd Style period'.
  */
 class MEI_EXPORT PeriodName : public MeiElement {
@@ -120,7 +120,7 @@ class MEI_EXPORT PeriodName : public MeiElement {
         REGISTER_DECLARATION(PeriodName);
 };
 
-/** \brief (personal name) – Designation for an individual, including any or all of that
+/** \brief (personal name) ― Designation for an individual, including any or all of that
  *  individual's forenames, surnames, honorific titles, and added names
  */
 class MEI_EXPORT PersName : public MeiElement {
@@ -148,7 +148,7 @@ class MEI_EXPORT PersName : public MeiElement {
         REGISTER_DECLARATION(PersName);
 };
 
-/** \brief (style name) – A label for a characteristic style of writing or performance,
+/** \brief (style name) ― A label for a characteristic style of writing or performance,
  *  such as 'bebop' or 'rock-n-roll'.
  */
 class MEI_EXPORT StyleName : public MeiElement {

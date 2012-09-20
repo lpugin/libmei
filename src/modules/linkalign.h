@@ -35,7 +35,7 @@
 
 
 namespace mei {
-/** \brief – Provides a set of ordered points in time to which musical elements can be
+/** \brief ― Provides a set of ordered points in time to which musical elements can be
  *  linked in order to create a temporal alignment of those elements.
  */
 class MEI_EXPORT Timeline : public MeiElement {
@@ -67,7 +67,7 @@ class MEI_EXPORT Timeline : public MeiElement {
         REGISTER_DECLARATION(Timeline);
 };
 
-/** \brief – Indicates a point in time either absolutely (using the absolute attribute),
+/** \brief ― Indicates a point in time either absolutely (using the absolute attribute),
  *  or relative to other elements in the same timeline element (using the interval
  *  and since attributes).
  */
