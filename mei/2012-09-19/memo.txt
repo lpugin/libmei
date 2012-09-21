@@ -1,0 +1,4 @@
+This version was modified by hand (sharedmixins and header) due to the bug in the 2012 schema
+
+sharedmixins.* are a merged from the previous version (2012-06-22)
+header.* were edited in Xcode (search and replace :space with nothing)
