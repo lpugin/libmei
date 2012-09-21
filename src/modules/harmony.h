@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -39,7 +39,7 @@
 
 
 namespace mei {
-/** \brief ― An indication of fingering in a chord tablature grid.
+/** \brief – An indication of fingering in a chord tablature grid.
  */
 class MEI_EXPORT Barre : public MeiElement {
     public:
@@ -58,7 +58,7 @@ class MEI_EXPORT Barre : public MeiElement {
         REGISTER_DECLARATION(Barre);
 };
 
-/** \brief (chord definition) ― Chord tablature definition.
+/** \brief (chord definition) – Chord tablature definition.
  */
 class MEI_EXPORT ChordDef : public MeiElement {
     public:
@@ -80,7 +80,7 @@ class MEI_EXPORT ChordDef : public MeiElement {
         REGISTER_DECLARATION(ChordDef);
 };
 
-/** \brief ― An individual pitch in a chord defined by a <chordDef> element.
+/** \brief – An individual pitch in a chord defined by a <chordDef> element.
  */
 class MEI_EXPORT ChordMember : public MeiElement {
     public:
@@ -109,7 +109,7 @@ class MEI_EXPORT ChordMember : public MeiElement {
         REGISTER_DECLARATION(ChordMember);
 };
 
-/** \brief ― Chord/tablature look-up table.
+/** \brief – Chord/tablature look-up table.
  */
 class MEI_EXPORT ChordTable : public MeiElement {
     public:
@@ -125,7 +125,7 @@ class MEI_EXPORT ChordTable : public MeiElement {
         REGISTER_DECLARATION(ChordTable);
 };
 
-/** \brief (figure) ― Single element of a figured bass indication.
+/** \brief (figure) – Single element of a figured bass indication.
  */
 class MEI_EXPORT F : public MeiElement {
     public:
@@ -153,7 +153,10 @@ class MEI_EXPORT F : public MeiElement {
         REGISTER_DECLARATION(F);
 };
 
-/** \brief (figured bass) ― Short-hand indication of harmony.
+/** \brief (figured bass) – Symbols added to a bass line that indicate harmony.
+ * 
+ *  Used to improvise a chordal accompaniment. Sometimes called Generalbass,
+ *  thoroughbass, or basso continuo.
  */
 class MEI_EXPORT Fb : public MeiElement {
     public:
@@ -172,7 +175,7 @@ class MEI_EXPORT Fb : public MeiElement {
         REGISTER_DECLARATION(Fb);
 };
 
-/** \brief (harmony) ― An indication of harmony, e.g., chord names, tablature grids,
+/** \brief (harmony) – An indication of harmony, e.g., chord names, tablature grids,
  *  harmonic analysis, figured bass.
  */
 class MEI_EXPORT Harm : public MeiElement {

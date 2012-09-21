@@ -729,27 +729,28 @@ bool mei::CommonMixIn::hasN() {
 void mei::CommonMixIn::removeN() {
     b->removeAttribute("n");
 };
-MeiAttribute* mei::CommonMixIn::getXml:base() {
-    if (!b->hasAttribute("xml:base")) {
-        throw AttributeNotFoundException("xml:base");
+MeiAttribute* mei::CommonMixIn::getBase() {
+    if (!b->hasAttribute("base")) {
+        throw AttributeNotFoundException("base");
     }
-    return b->getAttribute("xml:base");
+    return b->getAttribute("base");
 };
 
-void mei::CommonMixIn::setXml:base(std::string _xml:base) {
-    MeiAttribute *a = new MeiAttribute("xml:base", _xml:base);
+void mei::CommonMixIn::setBase(std::string _base) {
+    MeiNamespace *s = new MeiNamespace("xml", "http://www.w3.org/XML/1998/namespace");
+    MeiAttribute *a = new MeiAttribute(s, "base", _base);
     b->addAttribute(a);
 };
 
-bool mei::CommonMixIn::hasXml:base() {
-    return b->hasAttribute("xml:base");
+bool mei::CommonMixIn::hasBase() {
+    return b->hasAttribute("base");
 };
 
-void mei::CommonMixIn::removeXml:base() {
-    b->removeAttribute("xml:base");
+void mei::CommonMixIn::removeBase() {
+    b->removeAttribute("base");
 };
 
-/* include <xml:basemixin> */
+/* include <basemixin> */
 mei::CoordinatedMixIn::CoordinatedMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -1728,27 +1729,28 @@ mei::LangMixIn::LangMixIn(MeiElement *b) {
 };
 
 mei::LangMixIn::~LangMixIn() {}
-MeiAttribute* mei::LangMixIn::getXml:lang() {
-    if (!b->hasAttribute("xml:lang")) {
-        throw AttributeNotFoundException("xml:lang");
+MeiAttribute* mei::LangMixIn::getLang() {
+    if (!b->hasAttribute("lang")) {
+        throw AttributeNotFoundException("lang");
     }
-    return b->getAttribute("xml:lang");
+    return b->getAttribute("lang");
 };
 
-void mei::LangMixIn::setXml:lang(std::string _xml:lang) {
-    MeiAttribute *a = new MeiAttribute("xml:lang", _xml:lang);
+void mei::LangMixIn::setLang(std::string _lang) {
+    MeiNamespace *s = new MeiNamespace("xml", "http://www.w3.org/XML/1998/namespace");
+    MeiAttribute *a = new MeiAttribute(s, "lang", _lang);
     b->addAttribute(a);
 };
 
-bool mei::LangMixIn::hasXml:lang() {
-    return b->hasAttribute("xml:lang");
+bool mei::LangMixIn::hasLang() {
+    return b->hasAttribute("lang");
 };
 
-void mei::LangMixIn::removeXml:lang() {
-    b->removeAttribute("xml:lang");
+void mei::LangMixIn::removeLang() {
+    b->removeAttribute("lang");
 };
 
-/* include <xml:langmixin> */
+/* include <langmixin> */
 mei::LayerLogMixIn::LayerLogMixIn(MeiElement *b) {
     this->b = b;
 };
@@ -3016,62 +3018,65 @@ mei::PointingMixIn::PointingMixIn(MeiElement *b) {
 };
 
 mei::PointingMixIn::~PointingMixIn() {}
-MeiAttribute* mei::PointingMixIn::getXlink:actuate() {
-    if (!b->hasAttribute("xlink:actuate")) {
-        throw AttributeNotFoundException("xlink:actuate");
+MeiAttribute* mei::PointingMixIn::getActuate() {
+    if (!b->hasAttribute("actuate")) {
+        throw AttributeNotFoundException("actuate");
     }
-    return b->getAttribute("xlink:actuate");
+    return b->getAttribute("actuate");
 };
 
-void mei::PointingMixIn::setXlink:actuate(std::string _xlink:actuate) {
-    MeiAttribute *a = new MeiAttribute("xlink:actuate", _xlink:actuate);
+void mei::PointingMixIn::setActuate(std::string _actuate) {
+    MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
+    MeiAttribute *a = new MeiAttribute(s, "actuate", _actuate);
     b->addAttribute(a);
 };
 
-bool mei::PointingMixIn::hasXlink:actuate() {
-    return b->hasAttribute("xlink:actuate");
+bool mei::PointingMixIn::hasActuate() {
+    return b->hasAttribute("actuate");
 };
 
-void mei::PointingMixIn::removeXlink:actuate() {
-    b->removeAttribute("xlink:actuate");
+void mei::PointingMixIn::removeActuate() {
+    b->removeAttribute("actuate");
 };
-MeiAttribute* mei::PointingMixIn::getXlink:role() {
-    if (!b->hasAttribute("xlink:role")) {
-        throw AttributeNotFoundException("xlink:role");
+MeiAttribute* mei::PointingMixIn::getRole() {
+    if (!b->hasAttribute("role")) {
+        throw AttributeNotFoundException("role");
     }
-    return b->getAttribute("xlink:role");
+    return b->getAttribute("role");
 };
 
-void mei::PointingMixIn::setXlink:role(std::string _xlink:role) {
-    MeiAttribute *a = new MeiAttribute("xlink:role", _xlink:role);
+void mei::PointingMixIn::setRole(std::string _role) {
+    MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
+    MeiAttribute *a = new MeiAttribute(s, "role", _role);
     b->addAttribute(a);
 };
 
-bool mei::PointingMixIn::hasXlink:role() {
-    return b->hasAttribute("xlink:role");
+bool mei::PointingMixIn::hasRole() {
+    return b->hasAttribute("role");
 };
 
-void mei::PointingMixIn::removeXlink:role() {
-    b->removeAttribute("xlink:role");
+void mei::PointingMixIn::removeRole() {
+    b->removeAttribute("role");
 };
-MeiAttribute* mei::PointingMixIn::getXlink:show() {
-    if (!b->hasAttribute("xlink:show")) {
-        throw AttributeNotFoundException("xlink:show");
+MeiAttribute* mei::PointingMixIn::getShow() {
+    if (!b->hasAttribute("show")) {
+        throw AttributeNotFoundException("show");
     }
-    return b->getAttribute("xlink:show");
+    return b->getAttribute("show");
 };
 
-void mei::PointingMixIn::setXlink:show(std::string _xlink:show) {
-    MeiAttribute *a = new MeiAttribute("xlink:show", _xlink:show);
+void mei::PointingMixIn::setShow(std::string _show) {
+    MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
+    MeiAttribute *a = new MeiAttribute(s, "show", _show);
     b->addAttribute(a);
 };
 
-bool mei::PointingMixIn::hasXlink:show() {
-    return b->hasAttribute("xlink:show");
+bool mei::PointingMixIn::hasShow() {
+    return b->hasAttribute("show");
 };
 
-void mei::PointingMixIn::removeXlink:show() {
-    b->removeAttribute("xlink:show");
+void mei::PointingMixIn::removeShow() {
+    b->removeAttribute("show");
 };
 MeiAttribute* mei::PointingMixIn::getTarget() {
     if (!b->hasAttribute("target")) {
@@ -3111,27 +3116,28 @@ bool mei::PointingMixIn::hasTargettype() {
 void mei::PointingMixIn::removeTargettype() {
     b->removeAttribute("targettype");
 };
-MeiAttribute* mei::PointingMixIn::getXlink:title() {
-    if (!b->hasAttribute("xlink:title")) {
-        throw AttributeNotFoundException("xlink:title");
+MeiAttribute* mei::PointingMixIn::getTitle() {
+    if (!b->hasAttribute("title")) {
+        throw AttributeNotFoundException("title");
     }
-    return b->getAttribute("xlink:title");
+    return b->getAttribute("title");
 };
 
-void mei::PointingMixIn::setXlink:title(std::string _xlink:title) {
-    MeiAttribute *a = new MeiAttribute("xlink:title", _xlink:title);
+void mei::PointingMixIn::setTitle(std::string _title) {
+    MeiNamespace *s = new MeiNamespace("xlink", "http://www.w3.org/1999/xlink");
+    MeiAttribute *a = new MeiAttribute(s, "title", _title);
     b->addAttribute(a);
 };
 
-bool mei::PointingMixIn::hasXlink:title() {
-    return b->hasAttribute("xlink:title");
+bool mei::PointingMixIn::hasTitle() {
+    return b->hasAttribute("title");
 };
 
-void mei::PointingMixIn::removeXlink:title() {
-    b->removeAttribute("xlink:title");
+void mei::PointingMixIn::removeTitle() {
+    b->removeAttribute("title");
 };
 
-/* include <xlink:titlemixin> */
+/* include <titlemixin> */
 mei::RelativesizeMixIn::RelativesizeMixIn(MeiElement *b) {
     this->b = b;
 };

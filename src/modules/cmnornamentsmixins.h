@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -51,6 +51,26 @@ class MordentLogMixIn {
         void removeLong();
 
 /* include <longmixin> */
+
+    private:
+        MeiElement *b;
+};
+
+class OrnamMixIn {
+    public:
+        explicit OrnamMixIn(MeiElement *b);
+        virtual ~OrnamMixIn();
+        /** \brief indicates that this element has an attached ornament.
+         * 
+         *  If visual information about the ornament is needed, then one of the elements
+         *  that represents an ornament (mordent, trill, or turn) should be employed.
+         */
+        MeiAttribute* getOrnam();
+        void setOrnam(std::string _ornam);
+        bool hasOrnam();
+        void removeOrnam();
+
+/* include <ornammixin> */
 
     private:
         MeiElement *b;

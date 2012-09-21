@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -34,7 +34,7 @@
 
 
 namespace mei {
-/** \brief (pointer) ― Defines a pointer to another location, using only attributes to
+/** \brief (pointer) – Defines a pointer to another location, using only attributes to
  *  describe the destination.
  */
 class MEI_EXPORT Ptr : public MeiElement {
@@ -53,7 +53,7 @@ class MEI_EXPORT Ptr : public MeiElement {
         REGISTER_DECLARATION(Ptr);
 };
 
-/** \brief (reference) ― Defines a reference to another location that may contain text
+/** \brief (reference) – Defines a reference to another location that may contain text
  *  and sub-elements to describe the destination.
  */
 class MEI_EXPORT Ref : public MeiElement {

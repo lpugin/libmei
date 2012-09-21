@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -38,7 +38,7 @@
 
 
 namespace mei {
-/** \brief (interrupted neume) ― a graphically interrupted neume; that is, a neume which
+/** \brief (interrupted neume) – a graphically interrupted neume; that is, a neume which
  *  is logically a single entity but is written using multiple signs.
  */
 class MEI_EXPORT Ineume : public MeiElement {
@@ -61,7 +61,7 @@ class MEI_EXPORT Ineume : public MeiElement {
         REGISTER_DECLARATION(Ineume);
 };
 
-/** \brief ― Neume notation can be thought of as "neumed text".
+/** \brief – Neume notation can be thought of as "neumed text".
  * 
  *  Therefore, the syllable element provides high-level organization in this
  *  repertoire.
@@ -80,7 +80,7 @@ class MEI_EXPORT Syllable : public MeiElement {
         REGISTER_DECLARATION(Syllable);
 };
 
-/** \brief (uninterrupted neume) ― A graphically-uninterrupted neume sign.
+/** \brief (uninterrupted neume) – A graphically-uninterrupted neume sign.
  */
 class MEI_EXPORT Uneume : public MeiElement {
     public:

@@ -640,24 +640,25 @@ mei::IncipCode::IncipCode(const IncipCode& other) :
 {
 }
 
-MeiAttribute* mei::IncipCode::getXml:space() {
-    if (!hasAttribute("xml:space")) {
-        throw AttributeNotFoundException("xml:space");
+MeiAttribute* mei::IncipCode::getSpace() {
+    if (!hasAttribute("space")) {
+        throw AttributeNotFoundException("space");
     }
-    return getAttribute("xml:space");
+    return getAttribute("space");
 };
 
-void mei::IncipCode::setXml:space(std::string _xml:space) {
-    MeiAttribute *a = new MeiAttribute("xml:space", _xml:space);
+void mei::IncipCode::setSpace(std::string _space) {
+    MeiNamespace *s = new MeiNamespace("xml", "http://www.w3.org/XML/1998/namespace");
+    MeiAttribute *a = new MeiAttribute(s, "space", _space);
     addAttribute(a);
 };
 
-bool mei::IncipCode::hasXml:space() {
-    return hasAttribute("xml:space");
+bool mei::IncipCode::hasSpace() {
+    return hasAttribute("space");
 };
 
-void mei::IncipCode::removeXml:space() {
-    removeAttribute("xml:space");
+void mei::IncipCode::removeSpace() {
+    removeAttribute("space");
 };
 MeiAttribute* mei::IncipCode::getForm() {
     if (!hasAttribute("form")) {

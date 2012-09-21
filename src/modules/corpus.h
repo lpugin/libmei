@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -34,7 +34,7 @@
 
 
 namespace mei {
-/** \brief (MEI corpus) ― A group of related MEI documents, consisting of a header for
+/** \brief (MEI corpus) – A group of related MEI documents, consisting of a header for
  *  the group, and one or more <mei> elements, each with its own complete header.
  */
 class MEI_EXPORT MeiCorpus : public MeiElement {

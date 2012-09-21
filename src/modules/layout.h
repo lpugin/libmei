@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -80,16 +80,14 @@ class MEI_EXPORT LaidOutLayer : public MeiElement {
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
         CleffingLogMixIn    m_CleffingLog;
-        KeySigsLogMixIn    m_KeySigsLog;
-        MetersLogMixIn    m_MetersLog;
         TranspositionMixIn    m_Transposition;
         StaffDefVisMixIn    m_StaffDefVis;
         CleffingVisMixIn    m_CleffingVis;
         DistancesMixIn    m_Distances;
-        KeySigsVisMixIn    m_KeySigsVis;
+        KeySigDefaultVisMixIn    m_KeySigDefaultVis;
         LabelsAddlMixIn    m_LabelsAddl;
         LyricstyleMixIn    m_Lyricstyle;
-        MetersVisMixIn    m_MetersVis;
+        MeterSigDefaultVisMixIn    m_MeterSigDefaultVis;
         MultinummeasuresMixIn    m_Multinummeasures;
         OnelinestaffMixIn    m_Onelinestaff;
         ScalableMixIn    m_Scalable;
@@ -100,7 +98,7 @@ class MEI_EXPORT LaidOutLayer : public MeiElement {
         RehearsalMixIn    m_Rehearsal;
         SlurrendMixIn    m_Slurrend;
         TierendMixIn    m_Tierend;
-        MensurationVisMixIn    m_MensurationVis;
+        MensurDefaultVisMixIn    m_MensurDefaultVis;
 
     private:
         REGISTER_DECLARATION(LaidOutLayer);
@@ -122,16 +120,14 @@ class MEI_EXPORT LaidOutStaff : public MeiElement {
         Visualoffset2HoMixIn    m_Visualoffset2Ho;
         StaffidentMixIn    m_Staffident;
         CleffingLogMixIn    m_CleffingLog;
-        KeySigsLogMixIn    m_KeySigsLog;
-        MetersLogMixIn    m_MetersLog;
         TranspositionMixIn    m_Transposition;
         StaffDefVisMixIn    m_StaffDefVis;
         CleffingVisMixIn    m_CleffingVis;
         DistancesMixIn    m_Distances;
-        KeySigsVisMixIn    m_KeySigsVis;
+        KeySigDefaultVisMixIn    m_KeySigDefaultVis;
         LabelsAddlMixIn    m_LabelsAddl;
         LyricstyleMixIn    m_Lyricstyle;
-        MetersVisMixIn    m_MetersVis;
+        MeterSigDefaultVisMixIn    m_MeterSigDefaultVis;
         MultinummeasuresMixIn    m_Multinummeasures;
         OnelinestaffMixIn    m_Onelinestaff;
         ScalableMixIn    m_Scalable;
@@ -142,7 +138,7 @@ class MEI_EXPORT LaidOutStaff : public MeiElement {
         RehearsalMixIn    m_Rehearsal;
         SlurrendMixIn    m_Slurrend;
         TierendMixIn    m_Tierend;
-        MensurationVisMixIn    m_MensurationVis;
+        MensurDefaultVisMixIn    m_MensurDefaultVis;
 
     private:
         REGISTER_DECLARATION(LaidOutStaff);
@@ -205,7 +201,7 @@ class MEI_EXPORT Mb : public MeiElement {
         REGISTER_DECLARATION(Mb);
 };
 
-/** \brief layout -
+/** \brief page -
  */
 class MEI_EXPORT Page : public MeiElement {
     public:
@@ -215,6 +211,23 @@ class MEI_EXPORT Page : public MeiElement {
 
 /* include <page> */
 
+        ScoreDefVisMixIn    m_ScoreDefVis;
+        BarplacementMixIn    m_Barplacement;
+        CleffingVisMixIn    m_CleffingVis;
+        DistancesMixIn    m_Distances;
+        KeySigDefaultVisMixIn    m_KeySigDefaultVis;
+        LyricstyleMixIn    m_Lyricstyle;
+        MeterSigDefaultVisMixIn    m_MeterSigDefaultVis;
+        MultinummeasuresMixIn    m_Multinummeasures;
+        OnelinestaffMixIn    m_Onelinestaff;
+        TextstyleMixIn    m_Textstyle;
+        ScoreDefVisCmnMixIn    m_ScoreDefVisCmn;
+        BeamingVisMixIn    m_BeamingVis;
+        PianopedalsMixIn    m_Pianopedals;
+        RehearsalMixIn    m_Rehearsal;
+        SlurrendMixIn    m_Slurrend;
+        TierendMixIn    m_Tierend;
+        MensurDefaultVisMixIn    m_MensurDefaultVis;
         CommonMixIn    m_Common;
         PageRefMixIn    m_PageRef;
 
@@ -232,6 +245,23 @@ class MEI_EXPORT System : public MeiElement {
 
 /* include <system> */
 
+        ScoreDefVisMixIn    m_ScoreDefVis;
+        BarplacementMixIn    m_Barplacement;
+        CleffingVisMixIn    m_CleffingVis;
+        DistancesMixIn    m_Distances;
+        KeySigDefaultVisMixIn    m_KeySigDefaultVis;
+        LyricstyleMixIn    m_Lyricstyle;
+        MeterSigDefaultVisMixIn    m_MeterSigDefaultVis;
+        MultinummeasuresMixIn    m_Multinummeasures;
+        OnelinestaffMixIn    m_Onelinestaff;
+        TextstyleMixIn    m_Textstyle;
+        ScoreDefVisCmnMixIn    m_ScoreDefVisCmn;
+        BeamingVisMixIn    m_BeamingVis;
+        PianopedalsMixIn    m_Pianopedals;
+        RehearsalMixIn    m_Rehearsal;
+        SlurrendMixIn    m_Slurrend;
+        TierendMixIn    m_Tierend;
+        MensurDefaultVisMixIn    m_MensurDefaultVis;
         CommonMixIn    m_Common;
         SystemRefMixIn    m_SystemRef;
         CoordinatedMixIn    m_Coordinated;

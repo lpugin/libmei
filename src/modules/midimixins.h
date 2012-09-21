@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, and Others
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -131,7 +131,7 @@ class MidivalueMixIn {
     public:
         explicit MidivalueMixIn(MeiElement *b);
         virtual ~MidivalueMixIn();
-        /** \brief MIDI number
+        /** \brief MIDI number.
          */
         MeiAttribute* getVal();
         void setVal(std::string _val);
