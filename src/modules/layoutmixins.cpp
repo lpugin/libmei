@@ -137,6 +137,32 @@ void mei::PageRefMixIn::removePbrefs() {
 };
 
 /* include <pbrefsmixin> */
+mei::SurfaceMixIn::SurfaceMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::SurfaceMixIn::~SurfaceMixIn() {}
+MeiAttribute* mei::SurfaceMixIn::getSurface() {
+    if (!b->hasAttribute("surface")) {
+        throw AttributeNotFoundException("surface");
+    }
+    return b->getAttribute("surface");
+};
+
+void mei::SurfaceMixIn::setSurface(std::string _surface) {
+    MeiAttribute *a = new MeiAttribute("surface", _surface);
+    b->addAttribute(a);
+};
+
+bool mei::SurfaceMixIn::hasSurface() {
+    return b->hasAttribute("surface");
+};
+
+void mei::SurfaceMixIn::removeSurface() {
+    b->removeAttribute("surface");
+};
+
+/* include <surfacemixin> */
 mei::SystemRefMixIn::SystemRefMixIn(MeiElement *b) {
     this->b = b;
 };

@@ -123,6 +123,23 @@ class PageRefMixIn {
         MeiElement *b;
 };
 
+class SurfaceMixIn {
+    public:
+        explicit SurfaceMixIn(MeiElement *b);
+        virtual ~SurfaceMixIn();
+        /** \brief contains a reference to a surface element
+         */
+        MeiAttribute* getSurface();
+        void setSurface(std::string _surface);
+        bool hasSurface();
+        void removeSurface();
+
+/* include <surfacemixin> */
+
+    private:
+        MeiElement *b;
+};
+
 class SystemRefMixIn {
     public:
         explicit SystemRefMixIn(MeiElement *b);

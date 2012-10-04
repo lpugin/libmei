@@ -76,6 +76,7 @@ class MEI_EXPORT LaidOutLayer : public MeiElement {
 /* include <laidOutLayer> */
 
         CommonMixIn    m_Common;
+        PointingMixIn    m_Pointing;
         CoordinatedMixIn    m_Coordinated;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
@@ -119,6 +120,7 @@ class MEI_EXPORT LaidOutStaff : public MeiElement {
         VisualoffsetVoMixIn    m_VisualoffsetVo;
         Visualoffset2HoMixIn    m_Visualoffset2Ho;
         StaffidentMixIn    m_Staffident;
+        TypedMixIn    m_Typed;
         CleffingLogMixIn    m_CleffingLog;
         TranspositionMixIn    m_Transposition;
         StaffDefVisMixIn    m_StaffDefVis;
@@ -230,6 +232,7 @@ class MEI_EXPORT Page : public MeiElement {
         MensurDefaultVisMixIn    m_MensurDefaultVis;
         CommonMixIn    m_Common;
         PageRefMixIn    m_PageRef;
+        SurfaceMixIn    m_Surface;
 
     private:
         REGISTER_DECLARATION(Page);

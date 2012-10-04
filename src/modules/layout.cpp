@@ -39,6 +39,7 @@ mei::LaidOutElement::LaidOutElement(const LaidOutElement& other) :
 mei::LaidOutLayer::LaidOutLayer() :
     MeiElement("laidOutLayer"),
     m_Common(this),
+    m_Pointing(this),
     m_Coordinated(this),
     m_Staffident(this),
     m_Layerident(this),
@@ -69,6 +70,7 @@ mei::LaidOutLayer::~LaidOutLayer() {}
 mei::LaidOutLayer::LaidOutLayer(const LaidOutLayer& other) :
     MeiElement(other),
     m_Common(this),
+    m_Pointing(this),
     m_Coordinated(this),
     m_Staffident(this),
     m_Layerident(this),
@@ -104,6 +106,7 @@ mei::LaidOutStaff::LaidOutStaff() :
     m_VisualoffsetVo(this),
     m_Visualoffset2Ho(this),
     m_Staffident(this),
+    m_Typed(this),
     m_CleffingLog(this),
     m_Transposition(this),
     m_StaffDefVis(this),
@@ -135,6 +138,7 @@ mei::LaidOutStaff::LaidOutStaff(const LaidOutStaff& other) :
     m_VisualoffsetVo(this),
     m_Visualoffset2Ho(this),
     m_Staffident(this),
+    m_Typed(this),
     m_CleffingLog(this),
     m_Transposition(this),
     m_StaffDefVis(this),
@@ -237,7 +241,8 @@ mei::Page::Page() :
     m_Tierend(this),
     m_MensurDefaultVis(this),
     m_Common(this),
-    m_PageRef(this)
+    m_PageRef(this),
+    m_Surface(this)
 {
 }
 REGISTER_DEFINITION(mei::Page, "page");
@@ -262,7 +267,8 @@ mei::Page::Page(const Page& other) :
     m_Tierend(this),
     m_MensurDefaultVis(this),
     m_Common(this),
-    m_PageRef(this)
+    m_PageRef(this),
+    m_Surface(this)
 {
 }
 
