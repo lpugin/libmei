@@ -864,7 +864,6 @@ class MEI_EXPORT Mensuration : public MeiElement {
         MensurLogMixIn    m_MensurLog;
         DurationRatioMixIn    m_DurationRatio;
         SlashcountMixIn    m_Slashcount;
-        StafflocMixIn    m_Staffloc;
 
     private:
         REGISTER_DECLARATION(Mensuration);

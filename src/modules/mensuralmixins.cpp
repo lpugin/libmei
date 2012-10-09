@@ -341,5 +341,50 @@ void mei::StaffDefLogMensuralMixIn::removeProportNumbase() {
 };
 
 /* include <proport.numbasemixin> */
+mei::StafflocPitchedMixIn::StafflocPitchedMixIn(MeiElement *b) {
+    this->b = b;
+};
+
+mei::StafflocPitchedMixIn::~StafflocPitchedMixIn() {}
+MeiAttribute* mei::StafflocPitchedMixIn::getPloc() {
+    if (!b->hasAttribute("ploc")) {
+        throw AttributeNotFoundException("ploc");
+    }
+    return b->getAttribute("ploc");
+};
+
+void mei::StafflocPitchedMixIn::setPloc(std::string _ploc) {
+    MeiAttribute *a = new MeiAttribute("ploc", _ploc);
+    b->addAttribute(a);
+};
+
+bool mei::StafflocPitchedMixIn::hasPloc() {
+    return b->hasAttribute("ploc");
+};
+
+void mei::StafflocPitchedMixIn::removePloc() {
+    b->removeAttribute("ploc");
+};
+MeiAttribute* mei::StafflocPitchedMixIn::getOloc() {
+    if (!b->hasAttribute("oloc")) {
+        throw AttributeNotFoundException("oloc");
+    }
+    return b->getAttribute("oloc");
+};
+
+void mei::StafflocPitchedMixIn::setOloc(std::string _oloc) {
+    MeiAttribute *a = new MeiAttribute("oloc", _oloc);
+    b->addAttribute(a);
+};
+
+bool mei::StafflocPitchedMixIn::hasOloc() {
+    return b->hasAttribute("oloc");
+};
+
+void mei::StafflocPitchedMixIn::removeOloc() {
+    b->removeAttribute("oloc");
+};
+
+/* include <olocmixin> */
 
 

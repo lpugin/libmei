@@ -83,8 +83,22 @@ class MidiinstrumentMixIn {
         void setMidiInstrname(std::string _midiinstrname);
         bool hasMidiInstrname();
         void removeMidiInstrname();
+        /** \brief sets the instrument's position in a stereo field.
+         * 
+         *  Values of 0 and 1 both pan left, 127 pans right, and 64 pans to the center.
+         */
+        MeiAttribute* getMidiPan();
+        void setMidiPan(std::string _midipan);
+        bool hasMidiPan();
+        void removeMidiPan();
+        /** \brief sets the instrument's volume.
+         */
+        MeiAttribute* getMidiVolume();
+        void setMidiVolume(std::string _midivolume);
+        bool hasMidiVolume();
+        void removeMidiVolume();
 
-/* include <midi.instrnamemixin> */
+/* include <midi.volumemixin> */
 
     private:
         MeiElement *b;

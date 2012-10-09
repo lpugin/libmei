@@ -54,6 +54,7 @@ class MEI_EXPORT Ineume : public MeiElement {
         TypedMixIn    m_Typed;
         IneumeLogMixIn    m_IneumeLog;
         ColorMixIn    m_Color;
+        StafflocMixIn    m_Staffloc;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -102,6 +103,7 @@ class MEI_EXPORT Uneume : public MeiElement {
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
         RelativesizeMixIn    m_Relativesize;
+        StafflocMixIn    m_Staffloc;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         XyMixIn    m_Xy;
         VisibilityMixIn    m_Visibility;

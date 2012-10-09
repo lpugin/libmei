@@ -208,5 +208,28 @@ class StaffDefLogMensuralMixIn {
     private:
         MeiElement *b;
 };
+
+class StafflocPitchedMixIn {
+    public:
+        explicit StafflocPitchedMixIn(MeiElement *b);
+        virtual ~StafflocPitchedMixIn();
+        /** \brief captures staff location in terms of written pitch name.
+         */
+        MeiAttribute* getPloc();
+        void setPloc(std::string _ploc);
+        bool hasPloc();
+        void removePloc();
+        /** \brief records staff location in terms of written octave.
+         */
+        MeiAttribute* getOloc();
+        void setOloc(std::string _oloc);
+        bool hasOloc();
+        void removeOloc();
+
+/* include <olocmixin> */
+
+    private:
+        MeiElement *b;
+};
 }
 #endif  // MENSURALMIXIN_H_

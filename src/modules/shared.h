@@ -32,6 +32,7 @@
 #include "meicommon.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
+#include "mensuralmixins.h"
 #include "analysismixins.h"
 #include "linkalignmixins.h"
 #include "critappmixins.h"
@@ -39,7 +40,6 @@
 #include "cmnornamentsmixins.h"
 #include "edittransmixins.h"
 #include "midimixins.h"
-#include "mensuralmixins.h"
 #include "tablaturemixins.h"
 #include "layoutmixins.h"
 #include <string>
@@ -66,13 +66,14 @@ class MEI_EXPORT Accid : public MeiElement {
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
-        StafflocMixIn    m_Staffloc;
         ColorMixIn    m_Color;
+        EnclosingcharsMixIn    m_Enclosingchars;
         PlacementMixIn    m_Placement;
+        StafflocMixIn    m_Staffloc;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
         XyMixIn    m_Xy;
-        EnclosingcharsMixIn    m_Enclosingchars;
+        StafflocPitchedMixIn    m_StafflocPitched;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -188,14 +189,14 @@ class MEI_EXPORT Artic : public MeiElement {
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
-        StafflocMixIn    m_Staffloc;
         ColorMixIn    m_Color;
+        EnclosingcharsMixIn    m_Enclosingchars;
         PlacementMixIn    m_Placement;
+        StafflocMixIn    m_Staffloc;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
         XyMixIn    m_Xy;
-        EnclosingcharsMixIn    m_Enclosingchars;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -464,6 +465,7 @@ class MEI_EXPORT Custos : public MeiElement {
         OctaveMixIn    m_Octave;
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
+        StafflocMixIn    m_Staffloc;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -553,11 +555,12 @@ class MEI_EXPORT Dot : public MeiElement {
         TimestampPerformedMixIn    m_TimestampPerformed;
         StaffidentMixIn    m_Staffident;
         LayeridentMixIn    m_Layerident;
-        StafflocMixIn    m_Staffloc;
         ColorMixIn    m_Color;
+        StafflocMixIn    m_Staffloc;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
         XyMixIn    m_Xy;
+        StafflocPitchedMixIn    m_StafflocPitched;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 
@@ -788,14 +791,10 @@ class MEI_EXPORT KeyAccid : public MeiElement {
 
 /* include <keyAccid> */
 
-        AccidentalMixIn    m_Accidental;
         CommonMixIn    m_Common;
-        EnclosingcharsMixIn    m_Enclosingchars;
         FacsimileMixIn    m_Facsimile;
-        PitchMixIn    m_Pitch;
-        OctaveMixIn    m_Octave;
-        StafflocMixIn    m_Staffloc;
-        XyMixIn    m_Xy;
+        CommonAnlMixIn    m_CommonAnl;
+        AlignmentMixIn    m_Alignment;
 
     private:
         REGISTER_DECLARATION(KeyAccid);
@@ -1031,6 +1030,7 @@ class MEI_EXPORT Note : public MeiElement {
         ColorationMixIn    m_Coloration;
         EnclosingcharsMixIn    m_Enclosingchars;
         RelativesizeMixIn    m_Relativesize;
+        StafflocMixIn    m_Staffloc;
         StemmedMixIn    m_Stemmed;
         StemmedCmnMixIn    m_StemmedCmn;
         VisibilityMixIn    m_Visibility;
@@ -1409,12 +1409,13 @@ class MEI_EXPORT Rest : public MeiElement {
         AltsymMixIn    m_Altsym;
         ColorMixIn    m_Color;
         RelativesizeMixIn    m_Relativesize;
+        StafflocMixIn    m_Staffloc;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
         XyMixIn    m_Xy;
         RestVisMensuralMixIn    m_RestVisMensural;
-        LinelocMixIn    m_Lineloc;
+        StafflocPitchedMixIn    m_StafflocPitched;
         DurationPerformedMixIn    m_DurationPerformed;
         InstrumentidentMixIn    m_Instrumentident;
         DurationRatioMixIn    m_DurationRatio;

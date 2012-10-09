@@ -75,10 +75,10 @@ class MEI_EXPORT Mensur : public MeiElement {
         MensurLogMixIn    m_MensurLog;
         DurationRatioMixIn    m_DurationRatio;
         SlashcountMixIn    m_Slashcount;
-        StafflocMixIn    m_Staffloc;
         MensurVisMixIn    m_MensurVis;
         ColorMixIn    m_Color;
         RelativesizeMixIn    m_Relativesize;
+        StafflocMixIn    m_Staffloc;
         CommonAnlMixIn    m_CommonAnl;
         AlignmentMixIn    m_Alignment;
 

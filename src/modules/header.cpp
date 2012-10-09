@@ -963,8 +963,7 @@ mei::Mensuration::Mensuration() :
     m_Bibl(this),
     m_MensurLog(this),
     m_DurationRatio(this),
-    m_Slashcount(this),
-    m_Staffloc(this)
+    m_Slashcount(this)
 {
 }
 REGISTER_DEFINITION(mei::Mensuration, "mensuration");
@@ -975,8 +974,7 @@ mei::Mensuration::Mensuration(const Mensuration& other) :
     m_Bibl(this),
     m_MensurLog(this),
     m_DurationRatio(this),
-    m_Slashcount(this),
-    m_Staffloc(this)
+    m_Slashcount(this)
 {
 }
 

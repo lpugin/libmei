@@ -19,13 +19,14 @@ mei::Accid::Accid() :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
-    m_Staffloc(this),
     m_Color(this),
+    m_Enclosingchars(this),
     m_Placement(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
-    m_Enclosingchars(this),
+    m_StafflocPitched(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -44,13 +45,14 @@ mei::Accid::Accid(const Accid& other) :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
-    m_Staffloc(this),
     m_Color(this),
+    m_Enclosingchars(this),
     m_Placement(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
-    m_Enclosingchars(this),
+    m_StafflocPitched(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -175,14 +177,14 @@ mei::Artic::Artic() :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
-    m_Staffloc(this),
     m_Color(this),
+    m_Enclosingchars(this),
     m_Placement(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
-    m_Enclosingchars(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -200,14 +202,14 @@ mei::Artic::Artic(const Artic& other) :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
-    m_Staffloc(this),
     m_Color(this),
+    m_Enclosingchars(this),
     m_Placement(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
-    m_Enclosingchars(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -523,6 +525,7 @@ mei::Custos::Custos() :
     m_Octave(this),
     m_Altsym(this),
     m_Color(this),
+    m_Staffloc(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -539,6 +542,7 @@ mei::Custos::Custos(const Custos& other) :
     m_Octave(this),
     m_Altsym(this),
     m_Color(this),
+    m_Staffloc(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -644,11 +648,12 @@ mei::Dot::Dot() :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
-    m_Staffloc(this),
     m_Color(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
+    m_StafflocPitched(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -665,11 +670,12 @@ mei::Dot::Dot(const Dot& other) :
     m_TimestampPerformed(this),
     m_Staffident(this),
     m_Layerident(this),
-    m_Staffloc(this),
     m_Color(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
+    m_StafflocPitched(this),
     m_CommonAnl(this),
     m_Alignment(this)
 {
@@ -910,28 +916,20 @@ mei::Incip::Incip(const Incip& other) :
 
 mei::KeyAccid::KeyAccid() :
     MeiElement("keyAccid"),
-    m_Accidental(this),
     m_Common(this),
-    m_Enclosingchars(this),
     m_Facsimile(this),
-    m_Pitch(this),
-    m_Octave(this),
-    m_Staffloc(this),
-    m_Xy(this)
+    m_CommonAnl(this),
+    m_Alignment(this)
 {
 }
 REGISTER_DEFINITION(mei::KeyAccid, "keyAccid");
 mei::KeyAccid::~KeyAccid() {}
 mei::KeyAccid::KeyAccid(const KeyAccid& other) :
     MeiElement(other),
-    m_Accidental(this),
     m_Common(this),
-    m_Enclosingchars(this),
     m_Facsimile(this),
-    m_Pitch(this),
-    m_Octave(this),
-    m_Staffloc(this),
-    m_Xy(this)
+    m_CommonAnl(this),
+    m_Alignment(this)
 {
 }
 
@@ -1219,6 +1217,7 @@ mei::Note::Note() :
     m_Coloration(this),
     m_Enclosingchars(this),
     m_Relativesize(this),
+    m_Staffloc(this),
     m_Stemmed(this),
     m_StemmedCmn(this),
     m_Visibility(this),
@@ -1276,6 +1275,7 @@ mei::Note::Note(const Note& other) :
     m_Coloration(this),
     m_Enclosingchars(this),
     m_Relativesize(this),
+    m_Staffloc(this),
     m_Stemmed(this),
     m_StemmedCmn(this),
     m_Visibility(this),
@@ -1749,12 +1749,13 @@ mei::Rest::Rest() :
     m_Altsym(this),
     m_Color(this),
     m_Relativesize(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_RestVisMensural(this),
-    m_Lineloc(this),
+    m_StafflocPitched(this),
     m_DurationPerformed(this),
     m_Instrumentident(this),
     m_DurationRatio(this),
@@ -1780,12 +1781,13 @@ mei::Rest::Rest(const Rest& other) :
     m_Altsym(this),
     m_Color(this),
     m_Relativesize(this),
+    m_Staffloc(this),
     m_VisualoffsetHo(this),
     m_VisualoffsetTo(this),
     m_VisualoffsetVo(this),
     m_Xy(this),
     m_RestVisMensural(this),
-    m_Lineloc(this),
+    m_StafflocPitched(this),
     m_DurationPerformed(this),
     m_Instrumentident(this),
     m_DurationRatio(this),

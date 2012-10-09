@@ -491,12 +491,13 @@ class MEI_EXPORT MRest : public MeiElement {
         FermatapresentMixIn    m_Fermatapresent;
         AltsymMixIn    m_Altsym;
         CutoutMixIn    m_Cutout;
+        RelativesizeMixIn    m_Relativesize;
+        StafflocMixIn    m_Staffloc;
         VisualoffsetHoMixIn    m_VisualoffsetHo;
         VisualoffsetToMixIn    m_VisualoffsetTo;
         VisualoffsetVoMixIn    m_VisualoffsetVo;
         VisibilityMixIn    m_Visibility;
         XyMixIn    m_Xy;
-        RelativesizeMixIn    m_Relativesize;
         DurationPerformedMixIn    m_DurationPerformed;
         InstrumentidentMixIn    m_Instrumentident;
         CommonAnlMixIn    m_CommonAnl;
@@ -661,6 +662,7 @@ class MEI_EXPORT MultiRest : public MeiElement {
         NumberedMixIn    m_Numbered;
         MultiRestVisMixIn    m_MultiRestVis;
         AltsymMixIn    m_Altsym;
+        StafflocMixIn    m_Staffloc;
         DurationPerformedMixIn    m_DurationPerformed;
         InstrumentidentMixIn    m_Instrumentident;
         CommonAnlMixIn    m_CommonAnl;
