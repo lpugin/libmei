@@ -257,6 +257,12 @@ if __name__ == "__main__":
         if args.includes:
             cpp.parse_includes(args.outdir, args.includes)
 
+    if "vrv" in args.lang:
+        import langs.cplusplus_vrv as cpp_vrv
+        cpp_vrv.create(schema)
+        if args.includes:
+            cpp_vrv.parse_includes(args.outdir, args.includes)
+
     if "python" in args.lang:
         import langs.python as py
         py.create(schema)
