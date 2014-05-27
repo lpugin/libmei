@@ -459,3 +459,33 @@ TEST(TestMeiElement, CopyConstructor) {
     ASSERT_EQ("c", n1->m_Pitch.getPname()->getValue());
     
 }
+
+TEST(TestMeiElement, TestSetDocument) {
+    MeiElement *m = new MeiElement("mei");
+    MeiDocument *doc = new MeiDocument();
+    
+    ASSERT_THROW(m->setDocument(doc), mei::DocumentRootNotSetException);
+    
+    doc->setRootElement(m);
+    ASSERT_EQ(doc->getRootElement(), m);
+}
+
+TEST(TestMeiElement, TestLookBack) {
+    MeiElement *m = new MeiElement("mei");
+    MeiElement *music = new MeiElement("music");
+    MeiElement *body = new MeiElement("body");
+    MeiElement *staff = new MeiElement("staff");
+    MeiElement *note = new MeiElement("note");
+    
+    MeiDocument *doc = new MeiDocument();
+    doc->setRootElement(m);
+
+    m->addChild(music);
+    music->addChild(body);
+    body->addChild(staff);
+    staff->addChild(note);
+
+    ASSERT_EQ(music->lookBack("mei"), m);
+    ASSERT_EQ(staff->lookBack("mei"), m);
+}
+

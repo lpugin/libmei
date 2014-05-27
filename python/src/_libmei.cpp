@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2011-2012 Andrew Hankinson
+    Copyright (c) 2011-2012 Andrew Hankinson, Alastair Porter, Greg Burlet and others
 
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -354,7 +354,7 @@ BOOST_PYTHON_MODULE(_libmei) {
     ;
 
     class_<MeiElement, MeiElement*>("MeiElement", init<string>())
-        // .def(init<const MeiElement&>())
+        .def(init<const MeiElement&>())
         .def("__eq__", &MeiElement_EqualWrap)
         .def("__ne__", &MeiElement_NEqualWrap)
         .def("__str__", &MeiElement_Print)

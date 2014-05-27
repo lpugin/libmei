@@ -1,12 +1,30 @@
 # testing suite
 import unittest
-import os
 from pymei import MeiElement, MeiAttribute, MeiElementList, MeiDocument
+from pymei.exceptions import DocumentRootNotSetException
 
 class MeiElementTest(unittest.TestCase):
 
     def setUp(self):
         pass
+
+    def test_copy_constructor(self):
+        note = MeiElement("note")
+        note2 = note
+
+        # check that regular pointer referencing in Python works on MeiElements
+        self.assertEqual(note2, note)
+        note.addAttribute('pname', 'c')
+        note3 = MeiElement(note)
+
+        # check that they have been properly copied
+        self.assertNotEqual(note3, note)
+
+        # check that the attributes copied are not the same
+        self.assertNotEqual(note3.getAttribute('pname'), note.getAttribute('pname'))
+
+        # check that the attribute values copied are the same
+        self.assertEqual(note3.getAttribute('pname').value, note.getAttribute('pname').value)
 
     def test_name(self):
         note = MeiElement("note")
@@ -237,9 +255,7 @@ class MeiElementTest(unittest.TestCase):
     
     def test_descendants(self):
         m1 = MeiElement("music")
-        musicid = m1.id
         b1 = MeiElement("body")
-        bodyid = b1.id
         s1 = MeiElement("staff")
         n1 = MeiElement("note")
         a1 = MeiElement("accid")
@@ -257,7 +273,6 @@ class MeiElementTest(unittest.TestCase):
 
     def test_peers(self):
         m1 = MeiElement("music")
-        musicid = m1.id
         b1 = MeiElement("body")
         s1 = MeiElement("staff")
         n1 = MeiElement("note")
@@ -284,15 +299,12 @@ class MeiElementTest(unittest.TestCase):
     def test_getpositionindocument(self):
         m = MeiElement("mei")
         m1 = MeiElement("music")
-        musicid = m1.id
         b1 = MeiElement("body")
         s1 = MeiElement("staff")
         n1 = MeiElement("note")
-        noteid = n1.id
         n2 = MeiElement("note")
         n3 = MeiElement("note")
         n4 = MeiElement("note")
-        note4id = n4.id
 
         m.addChild(m1)
         m1.addChild(b1)
@@ -337,29 +349,34 @@ class MeiElementTest(unittest.TestCase):
         self.assertEqual('there', attrs[0].value)
         self.assertEqual(4, len(attrs))
 
-    # def test_copyconstructor(self):
-    #     n1 = MeiElement("note")
-    #     noteid = n1.id
-    #     n1.addAttribute("headshape", "diamond")
-    #     n1.addAttribute("pname", "c")
+    def test_setdocument(self):
+        m = MeiElement("mei")
+        doc = MeiDocument()
 
-    #     n2 = MeiElement(n1)
-    #     noteid2 = n2.id
+        with self.assertRaises(DocumentRootNotSetException) as cm:
+            m.setDocument(doc)
+        self.assertTrue(isinstance(cm.exception, DocumentRootNotSetException))
+        doc.setRootElement(m)
 
-    #     # each should have a new id
-    #     self.assertNotEqual(noteid, noteid2)
+        self.assertEqual(doc.root, m)
 
-    #     self.assertEqual("diamond", n2.getAttribute("headshape").value)
+    def test_lookback(self):
+        m = MeiElement("mei")
+        m1 = MeiElement("music")
+        b1 = MeiElement("body")
+        s1 = MeiElement("staff")
+        n1 = MeiElement("note")
 
-    #     # ensure they're independent objects
-    #     n2.getAttribute("pname").value = "d"
+        doc = MeiDocument()
+        doc.setRootElement(m)
+        m.addChild(m1)
+        m1.addChild(b1)
+        b1.addChild(s1)
+        s1.addChild(n1)
+        
+        self.assertEqual(m1.lookBack('mei'), m)
 
-    #     self.assertEqual("c", n1.getAttribute("pname").value)
-    #     self.assertEqual("d", n2.getAttribute("pname").value)
-
-
-
-
+        self.assertEqual(s1.lookBack('mei'), m)
 
 
 def suite():

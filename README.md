@@ -1,6 +1,8 @@
 LibMEI
 ------
 
+[![Build Status](https://travis-ci.org/DDMAL/libmei.png?branch=master)](https://travis-ci.org/DDMAL/libmei)
+
 LibMEI is a C++ library for reading and writing [MEI](http://music-encoding.org) files
 
 It is developed by the [Distributed Digital Music Archives and Libraries Lab](http://ddmal.music.mcgill.ca/)
@@ -51,18 +53,6 @@ LibMEI ships with tools that allow you to easily work with these customizations 
 we include a Python script, `parseschema2.py` that will generate custom code for you in either C++ or Python. (Other languages may be added as well, if requested).
 
 You can read more about customization and custom compiliation on our [wiki pages](https://github.com/DDMAL/libmei/wiki/Automatic-Code-Generation).
-
-Authors
--------
-
-* Andrew Hankinson
-* Alastair Porter
-* Greg Burlet
-* Jamie Klassen
-* Mahtab Ghamsari
-
-Development of LibMEI was made possible with funding from the
-Social Sciences and Humanities Research Council of Canada
 
 Contributions
 -------------

@@ -13,7 +13,7 @@ METHOD_TEMPLATE = """
 """
 LICENSE = """
     _License "() {{
-    return 'Copyright (c) 2011-2012 {authors}
+    return 'Copyright (c) 2011-2013 {authors}
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -123,7 +123,12 @@ createXmlTag "(name, attributesList, isTerminal) {
         spacer = ' ';
         for each Pair attr in attributesList {
             if (attr.Value != ' ') {
-                attrstring = attrstring & attr.Name & '=' & Chr(34) & attr.Value & Chr(34) & ' ';
+                if (attrstring = '') {
+                    // Don't add initial space
+                    attrstring = attr.Name & '=' & Chr(34) & attr.Value & Chr(34);
+                } else {
+                    attrstring = attrstring & spacer & attr.Name & '=' & Chr(34) & attr.Value & Chr(34);
+                }
             }
         }
     }
@@ -591,13 +596,13 @@ FILE_TEMPLATE="""
     {extras}
 }}
 """
-def create(schema):
+def create(schema, outdir):
     lg.debug("Begin ManuScript Output")
-    __create_manuscript_classes(schema)
+    __create_manuscript_classes(schema, outdir)
 
     lg.debug("Success!")
 
-def __create_manuscript_classes(schema):
+def __create_manuscript_classes(schema, outdir):
     output = ""
     for module,elements in sorted(schema.element_structure.iteritems()):
         if not elements:
@@ -617,7 +622,7 @@ def __create_manuscript_classes(schema):
     }
     fileoutput = FILE_TEMPLATE.format(**filestr)
 
-    fmi = open(os.path.join(schema.outdir, 'libmei.plg'), 'w')
+    fmi = open(os.path.join(outdir, 'libmei.plg'), 'w')
     fmi.write(fileoutput)
     fmi.close()
     return True

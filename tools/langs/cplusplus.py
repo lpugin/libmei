@@ -2,18 +2,17 @@
 
 import os
 import re
-import codecs
 import textwrap
 import logging
 import types
 lg = logging.getLogger('schemaparser')
-import pdb
 
-LANG_NAME="C++"
+LANG_NAME = "C++"
 
 NS_PREFIX_MAP = {
     "http://www.w3.org/XML/1998/namespace": "xml",
-    "http://www.w3.org/1999/xlink": "xlink"
+    "http://www.w3.org/1999/xlink": "xlink",
+    "http://www.isocat.org/ns/dcr": "datcat"
 }
 
 AUTHORS = "Andrew Hankinson, Alastair Porter, and Others"
@@ -136,7 +135,7 @@ ELEMENT_MIXIN_TEMPLATE = """        {attNameUpper}MixIn    m_{attNameUpper};
 """
 
 LICENSE = """/*
-    Copyright (c) 2011-2012 {authors}
+    Copyright (c) 2011-2013 {authors}
     
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -158,11 +157,11 @@ LICENSE = """/*
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */"""
 
-def create(schema):
+def create(schema, outdir):
     lg.debug("Begin C++ Output ... ")
     
-    __create_mixin_classes(schema)
-    __create_element_classes(schema)
+    __create_mixin_classes(schema, outdir)
+    __create_element_classes(schema, outdir)
     
     lg.debug("Success!")
 
@@ -192,7 +191,7 @@ def __get_docstr(text, indent=0):
     docstr += "\n{0} */".format(istr)
     return docstr
 
-def __create_mixin_classes(schema):
+def __create_mixin_classes(schema, outdir):
     ###########################################################################
     # Header
     ###########################################################################
@@ -239,7 +238,7 @@ def __create_mixin_classes(schema):
         if "std::string" in classes:
             tplvars["includes"] = "#include <string>"
         fullout = CLASSES_HEAD_TEMPLATE.format(**tplvars)
-        fmh = open(os.path.join(schema.outdir, "{0}mixins.h".format(module.lower())), 'w')
+        fmh = open(os.path.join(outdir, "{0}mixins.h".format(module.lower())), 'w')
         fmh.write(fullout)
         fmh.close()
         lg.debug("\tCreated {0}mixins.h".format(module.lower()))
@@ -253,10 +252,10 @@ def __create_mixin_classes(schema):
         fullout = ""
         classes = ""
         methods = ""
-        
+
         if not atgroup:
             continue
-        
+
         for gp, atts in sorted(atgroup.iteritems()):
             if not atts:
                 continue
@@ -264,7 +263,7 @@ def __create_mixin_classes(schema):
             for att in atts:
                 if len(att.split("|")) > 1:
                     # we have a namespaced attribute
-                    ns,att = att.split("|")
+                    ns, att = att.split("|")
                     nssubstr = {
                         "prefix": NS_PREFIX_MAP[ns],
                         "href": ns
@@ -282,7 +281,7 @@ def __create_mixin_classes(schema):
                     "attNameLowerJoined": schema.strpdot(att),
                     "namespaceDefinition": nsDef,
                     "attrNs": attrNs,
-                    "accessor": "b->", # we need this for mixins
+                    "accessor": "b->",  # we need this for mixins
                 }
                 methods += METHODS_IMPL_TEMPLATE.format(**attsubstr)
             
@@ -298,12 +297,12 @@ def __create_mixin_classes(schema):
             "elements": classes
         }
         fullout = CLASSES_IMPL_TEMPLATE.format(**tplvars)
-        fmi = open(os.path.join(schema.outdir, "{0}mixins.cpp".format(module.lower())), 'w')
+        fmi = open(os.path.join(outdir, "{0}mixins.cpp".format(module.lower())), 'w')
         fmi.write(fullout)
         fmi.close()
         lg.debug("\tCreated {0}mixins.cpp".format(module.lower()))
 
-def __create_element_classes(schema):
+def __create_element_classes(schema, outdir):
     lg.debug("Creating Element Headers")
     ###########################################################################
     # Header
@@ -369,7 +368,7 @@ def __create_element_classes(schema):
             outvars["includes"] += "#include <string>\n"
         
         fullout = CLASSES_HEAD_TEMPLATE.format(**outvars)
-        fmh = open(os.path.join(schema.outdir, "{0}.h".format(module.lower())), 'w')
+        fmh = open(os.path.join(outdir, "{0}.h".format(module.lower())), 'w')
         fmh.write(fullout)
         fmh.close()
         lg.debug("\tCreated {0}.h".format(module.lower()))
@@ -438,7 +437,7 @@ def __create_element_classes(schema):
         }
         fullout = CLASSES_IMPL_TEMPLATE.format(**implvars)
         
-        fmi = open(os.path.join(schema.outdir, "{0}.cpp".format(module.lower())), 'w')
+        fmi = open(os.path.join(outdir, "{0}.cpp".format(module.lower())), 'w')
         fmi.write(fullout)
         fmi.close()
         lg.debug("\t Created {0}.cpp".format(module.lower()))

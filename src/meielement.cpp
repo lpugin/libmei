@@ -9,6 +9,7 @@
 
 #include "meiattribute.h"
 #include "meidocument.h"
+#include "exceptions.h"
 
 using std::string;
 using std::vector;
@@ -25,7 +26,7 @@ mei::MeiElement::MeiElement(string name) {
     this->value = "";
     this->parent = NULL;
     this->document = NULL;
-    generateAndSetId();
+    this->generateAndSetId();
 }
 
 mei::MeiElement::~MeiElement() {
@@ -50,6 +51,7 @@ mei::MeiElement::MeiElement(const MeiElement& ele) :
     for (attr_it = ele.attributes.begin(); attr_it != ele.attributes.end(); ++attr_it) {
         this->addAttribute(new MeiAttribute(**attr_it));
     }
+    this->generateAndSetId();
 }
 
 extern "C"
@@ -84,7 +86,7 @@ void mei::MeiElement::generateAndSetId() {
     out = "m-" + string(s);
     std::transform(out.begin(), out.end(), out.begin(), ::tolower);
 
-    setId(out);
+    this->setId(out);
 }
 
 const string mei::MeiElement::getId() {
@@ -192,10 +194,17 @@ mei::MeiElement* mei::MeiElement::getParent() {
     return this->parent;
 }
 
-void mei::MeiElement::setDocument(MeiDocument *document) {
+void mei::MeiElement::setDocument(MeiDocument *document) throw(DocumentRootNotSetException) {
+    if (!document->getRootElement()) {
+        throw DocumentRootNotSetException("The document root is not set. Please set it using MeiDocument::setRootElement()");
+    }
+
     this->document = document;
     document->addIdMap(id, this);
-    for (vector<mei::MeiElement*>::iterator iter = children.begin(); iter != children.end(); ++iter) {
+    
+    vector<mei::MeiElement*> descendants = this->getDescendants();
+    
+    for (vector<mei::MeiElement*>::iterator iter = descendants.begin(); iter != descendants.end(); ++iter) {
         (*iter)->setDocument(document);
     }
 }
@@ -204,6 +213,10 @@ MeiDocument* mei::MeiElement::getDocument() {
     return this->document;
 }
 
+/*
+    Removing the document pointer from an element will also
+    remove it from all its child elements.
+*/
 void mei::MeiElement::removeDocument() {
     if (document) {
         this->document->rmIdMap(id);
@@ -411,7 +424,7 @@ const vector<mei::MeiElement*> mei::MeiElement::flatten() {
 }
 
 void mei::MeiElement::updateDocument() {
-    if (document) {
+    if (document && document->getRootElement() != NULL) {
         document->updateFlattenedTree();
     }
 }

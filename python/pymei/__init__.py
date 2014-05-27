@@ -20,19 +20,19 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 from _libmei import *
-import types
+import sys
+
 
 def read(filename):
     """ Extra wrapper to make sure we can handle unicode filenames. """
-    if isinstance(filename, types.UnicodeType):
-        filename = str(filename)
+    filename = filename.encode(sys.getfilesystemencoding())
     doc = XmlImport.documentFromFile(filename)
     return doc
 XmlImport.read = staticmethod(read)
 
+
 def write(mei, filename):
     """ Write an MEI document to a file """
-    if isinstance(filename, types.UnicodeType):
-        filename = str(filename)
+    filename = filename.encode(sys.getfilesystemencoding())
     XmlExport.meiDocumentToFile(mei, filename)
 XmlExport.write = staticmethod(write)
